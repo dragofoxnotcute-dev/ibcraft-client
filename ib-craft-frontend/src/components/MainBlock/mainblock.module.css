@@ -1,0 +1,151 @@
+.main {
+    margin: 140px 0px;
+    padding: 150px 0 150px 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.discription_block{
+    align-items: center;
+    max-width: 682px;
+    max-height: 280px;
+    background-color: #13061E;
+    border-radius: 45px;
+    border-right: 14px solid rgba(56, 27, 80, 0.55);
+    border-bottom: 14px solid rgba(56, 27, 80, 0.55);
+}
+
+.discription_context {
+    font-size: 42px;
+    font-weight: bold;
+    padding: 25px 10px;
+    line-height: 47px;
+}
+
+.discription_context span {
+    color: #FFB5FA;
+}
+
+.options_block{
+    display: block;
+    margin-top: 80px;
+}
+
+.ip_server_context{
+    font-size: 38px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.option_button_items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.main_btn {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--textcolor);
+    background-color: var(--buttonscolor);
+    max-width: 360px;
+    padding: 15px 60px;
+    border-radius: 45px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.clipboard {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    background-color: #8700ff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 30px;
+    z-index: 5;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text_title {
+    display: flex;
+    justify-content: center;
+}
+
+.clip {
+    position: fixed;
+    display: flex;
+    top: -150px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    justify-content: center;
+    transition: 0.3s;
+    
+}
+
+.active_clip {
+    top: 150px;
+}
+
+
+.main_btn:hover {
+    background-color: var(--buttonhovercolor);
+}
+
+.ip_server_context:hover {
+    color: #FFB5FA;
+}
+
+.main_btn span {
+    position: relative;
+    margin-left: 10px;
+}
+
+#user_ico {
+    content: url(../../static/user_ico.svg);
+    width: 24px;
+    height: 21px;
+}
+
+#download_ico {
+    content: url(../../static/download_ico.svg);
+    width: 24px;
+    height: 21px;
+}
+
+
+@media (max-width: 1095px) {
+    .main {
+        height: 500px;
+        padding: 10px 0 10px 0;
+        margin: 120px 0px;
+    }
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .options_block {
+        margin: 10px 0 0 0;
+    }
+
+    .discription_context{
+        font-size: 26px;
+        line-height: 30px;
+    }
+}
