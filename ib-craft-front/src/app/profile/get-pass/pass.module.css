@@ -1,3 +1,78 @@
 .main {
     height: 100vh;
 }
+
+.form_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.from_data_age {
+    display: flex;
+    flex-direction: row;
+    width: 756px;
+    justify-content: center;
+    gap: 60px
+}
+
+.inputs_age {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputs_playing {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    height: 40px;
+    width: 400px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0 7px;
+    background: #2b0d44;
+    transition: .3s ease;
+    color: #fff;
+}
+
+.input:focus {
+    box-shadow: inset 0 0 100px rgba(0,0,0,.2);
+}
+
+.placeholder_input {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.discripton {
+    font-size: 12px;
+    color: #555555;
+    font-weight: bold;
+}
+
+.checkbox_block {
+    display: flex;
+    gap: 120px;
+    justify-content: center;
+}
+
+.context_check{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.from_checkboxs {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 30px;
+}
