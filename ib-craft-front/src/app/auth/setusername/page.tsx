@@ -3,12 +3,14 @@
 import AuthContainer from "@/app/components/BlockAuth/AuthContainer";
 import SubmitButton from "@/app/components/Buttons/SubmitButton";
 import style from "./setusername.module.css"
+import BubbleBackground from "@/app/components/EffectComponents/BubbleContainer";
 
 
 export default function SetUsername() {
 
     return (
         <div>
+            <BubbleBackground />
             <AuthContainer>
                 <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enableBackground="new 0 0 100 100" fill="green" className={style.creeper}>
                     <polygon points="37.019,70.467 29.104,65.902 29.104,80.182 37.019,84.745 "/>

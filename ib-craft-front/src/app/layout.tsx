@@ -28,9 +28,6 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${Oxygen.variable} soid`}>
         <Header/>
-        <div className="container">
-          <BubbleBackground />
-        </div>
         {children}
         <Footer/>
       </body>

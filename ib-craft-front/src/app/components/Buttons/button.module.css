@@ -30,19 +30,13 @@
     transition: 0.5s;
     font-size: 29px;
     border: #fff solid 2px;
+    fill: #fff;
+    gap: 10px
 }
 
 .buttonOption:hover {
     background-color: #fffafa;
-    color: black;
+    color: rgb(0, 0, 0);
+    fill: black;
 }
 
-.buttonOption span svg path {
-    color: #fff;
-    fill: white;
-}
-
-.buttonOption span svg path:hover {
-    color: #000000;
-    fill: rgb(0, 0, 0);
-}

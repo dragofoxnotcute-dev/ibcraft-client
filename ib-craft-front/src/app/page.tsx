@@ -6,6 +6,7 @@ import MainBlock from "./components/MainBlock/MainBlock";
 import QuestionsBlock from "./components/questionsBlock/QuestionsBlock";
 import TitleBlock from "./components/titleBlock/TitleBlock";
 import styles from "./page.module.css";
+import BubbleBackground from "./components/EffectComponents/BubbleContainer";
 
 export default function Home() {
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <BubbleBackground />
       <MainBlock/>
       <TitleBlock/>
       <CardBlock/>

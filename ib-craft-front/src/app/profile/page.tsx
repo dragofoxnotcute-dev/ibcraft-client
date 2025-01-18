@@ -37,6 +37,7 @@ export default function Profile() {
                                         <p className={style.context_user}>Username</p>
                                         <Dropdown>
                                                 <a href="#" style={{color: "#fff", fontWeight: "bold"}}>Сменить никнейм</a>
+                                                <a href="#" style={{color: "#fff", fontWeight: "bold"}}>Сменить аватар</a>
                                                 <a href="#" style={{color: "#fff", fontWeight: "bold"}}>Выйти из аккаунта</a>
                                         </Dropdown>
                                     </div>
@@ -58,7 +59,7 @@ export default function Profile() {
                                         <h1 className={style.context_status}>Статус заявки</h1>
                                     </div>
                                     <div className={style.info_status}>
-                                        <p className={style.status_text}>Не подана</p>
+                                        <p className={style.status_text}>Не подана, чтобы её подать нажмите "Подать на получение проходки"</p>
                                     </div>
                                 </div>
                             </div>
