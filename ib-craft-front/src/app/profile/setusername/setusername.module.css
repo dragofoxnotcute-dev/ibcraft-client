@@ -1,0 +1,32 @@
+.form{
+    margin-top: 40px;
+}
+
+.form_nikname{
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0 7px;
+    background: #2b0d44;
+    transition: .3s ease;
+    color: #fff;
+}
+
+input.form_nikname {
+    width: 250px;
+}
+
+.form_nikname:focus {
+    box-shadow: inset 0 0 100px rgba(0,0,0,.2);
+}
+
+.creeper {
+    width: 150px;
+    height: 150px;
+}
+
+.buttons {
+    margin-top: 35px;
+}

@@ -1,0 +1,48 @@
+.button {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--buttonscolor);
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 30px;
+    gap: 10px;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    align-items: center;
+}
+
+.padding {
+    padding: 16px 40px;
+}
+
+.button:hover {
+    background-color: var(--buttonhovercolor);
+}
+
+.buttonOption {
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: 0.5s;
+    font-size: 29px;
+    border: #fff solid 2px;
+}
+
+.buttonOption:hover {
+    background-color: #fffafa;
+    color: black;
+}
+
+.buttonOption span svg path {
+    color: #fff;
+    fill: white;
+}
+
+.buttonOption span svg path:hover {
+    color: #000000;
+    fill: rgb(0, 0, 0);
+}
