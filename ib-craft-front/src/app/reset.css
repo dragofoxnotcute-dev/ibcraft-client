@@ -47,3 +47,8 @@ table {
 details summary::-webkit-details-marker {
     display:none;
 }
+
+textarea {
+    width: 0;
+    height: 0;
+}
