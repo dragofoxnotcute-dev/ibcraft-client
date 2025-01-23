@@ -1,12 +1,11 @@
-.main_auth{
-    max-width: 100%;
-    max-height: 120vh;
-}
+
 
 .wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
-    
+    align-items: center;
+   
 }
 
 .blockauth {
@@ -17,11 +16,12 @@
     align-items: center;
     background-color: var(--elementcolor);
     margin-top: 30px;
-    width: 100vh;
-    height: 80vh;
+    min-width: 100vh;
+    min-height: 80vh;
     border-radius: 40px;
     gap: 10px;
     margin-top: 42px;
+
 }
 
 .title_auth {

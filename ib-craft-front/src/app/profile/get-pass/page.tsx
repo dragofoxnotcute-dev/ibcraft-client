@@ -23,7 +23,7 @@ export default function GetPenetration() {
     });
 
     return (
-        <div className={style.main}>
+        <main className={style.main}>
             <div className="container">
                 <div className={style.title}>
                     <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enableBackground="new 0 0 100 100" fill="green" className={style.creeper}>
@@ -131,6 +131,6 @@ export default function GetPenetration() {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     )
 }

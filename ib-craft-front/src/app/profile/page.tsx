@@ -23,7 +23,7 @@ export default function Profile() {
     });
 
     return (
-        <div style={{height: "100vh"}}>
+        <main>
             <div className="container">
                 <div className={style.profile_container}>
                     <div className={style.profile_block}>
@@ -67,6 +67,6 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     )
  }

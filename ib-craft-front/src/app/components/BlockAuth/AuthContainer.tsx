@@ -15,8 +15,8 @@ function AuthContainer({children}: AuthContainerProps) {
       });
 
     return (
-        <>
-            <main className={style.main_auth}>
+        <main>
+            <div className={style.main_auth}>
                 <div className="container">
                     <div className={style.wrapper}>
                         <div className={style.blockauth}>
@@ -24,8 +24,8 @@ function AuthContainer({children}: AuthContainerProps) {
                         </div>
                     </div>
                 </div>
-            </main>
-        </>
+            </div>
+        </main>
     )
 }
 
