@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./reset.css"
-import "./globals.css";
+import "@styles/reset.css";
+import "@styles/globals.css"
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import BubbleBackground from "./components/EffectComponents/BubbleContainer";
+
 
 const Oxygen = localFont({
-  src: "./fonts/OxygenRegular.woff",
+  src: "../../src/shared/fonts/OxygenRegular.woff",
   variable: "--font-oxygen-sans",
   weight: "100 900 bold",
 });

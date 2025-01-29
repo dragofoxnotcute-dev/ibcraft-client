@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 
 import style from "./header.module.css"
-import logo from "../../static/logo.svg"
+import logo from "@static/logo.svg"
 import Link from "next/link";
 import Image from "next/image";
 

@@ -135,7 +135,7 @@ input.from_auth {
 #discord {
     position: relative;
     top: 1px;
-    content: url(../../static/discord_min.svg);
+    content: url(../../../shared/static/discord_min.svg);
     max-width: 23px;
     max-height: 23px; 
 }

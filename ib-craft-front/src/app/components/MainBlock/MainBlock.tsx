@@ -54,10 +54,10 @@ function MainBlock() {
                         </OptionsButton>
                         <ul className={style.option_button_items}>
                             <li className={style.item_main_btn}>
-                                <a href="#!" className={style.main_btn}>Получить проходку<span id={style.user_ico}></span></a>
+                                <Link href="/profile/get-pass" className={style.main_btn}>Получить проходку<span id={style.user_ico}></span></Link>
                             </li>
                             <li className={style.item_main_btn}>
-                                <Link href="/profile" className={style.main_btn}>Скачать сборку<span id={style.download_ico}></span></Link>
+                                <Link href="#" className={style.main_btn}>Скачать сборку<span id={style.download_ico}></span></Link>
                             </li>
                         </ul>
                     </div>

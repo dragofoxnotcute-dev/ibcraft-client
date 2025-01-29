@@ -52,15 +52,15 @@
 }
 
 #gamepad_ico {
-    content: url(../../static/gamepad.svg);
+    content: url(../../../shared/static/gamepad.svg);
 }
 
 #pc_ico {
-    content: url(../../static/pc.svg);
+    content: url(../../../shared/static/pc.svg);
 }
 
 #server_ico {
-    content: url(../../static/server.svg);
+    content: url(../../../shared/static/server.svg);
 }
 
 @media (max-width: 1060px) {

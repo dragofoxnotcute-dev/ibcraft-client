@@ -1,26 +1,34 @@
 "use client";
 
-import { useEffect } from "react";
 import style from "./profile.module.css";
 import SubmitButton from "../components/Buttons/SubmitButton";
 import Dropdown from "../components/Dropdown/Dropdown";
+import ProtectedRoute from "../components/Auth/ProtectedRoute";
+import BubbleControler from "../components/EffectComponents/BubbleControler";
+import { useEffect, useState } from "react";
+import fetchUser from "../hook/hookUser";
 
-export default function Profile() {
+
+interface ApiResponse {
+    name: string;
+    avatarIco: string;
+}
+
+const Profile = () => {
+    const [data, setData] = useState<ApiResponse | null>(null);
+    const user = async () => {
+        const response = await fetchUser();
+        if (response) {
+            setData(response);
+            return;
+        } else {
+            console.error('Error fetching user:', response);
+        }
+    }
 
     useEffect(() => {
-        const bubbleContainer = document.getElementById('bubble-container');
-        document.body.style.background = "#13061E";
-
-        if (bubbleContainer) {
-            bubbleContainer.classList.add(style.disabled);
-        }
-
-        return () => {
-            if (bubbleContainer) {
-                bubbleContainer.classList.remove(style.disabled);
-            }
-        };
-    });
+       user();
+    }, []);
 
     return (
         <main>
@@ -29,12 +37,13 @@ export default function Profile() {
                     <div className={style.profile_block}>
                         <div style={{display: "flex", flexDirection: "row", gap: "20px"}}>
                             <div className={style.profile_avatar} style={{height: "100px", width: "100px"}}>
-                                <img src="https://cdn.discordapp.com/avatars/280288972331155456/92067daa8c50242ed8ca505d51ecfd4f.png?size=2048" alt="avatar" width={100} height={100} className={style.avatar} />
+                                {data?.avatarIco ? <img src={data.avatarIco} alt="avatar" className={style.avatar}/> : <img src="https://pbs.twimg.com/profile_images/1860801420510793728/adaqs3h4_400x400.jpg" alt="avatar" className={style.avatar}/>
+                            }
                             </div>
                             <div className={style.profile}>
                                 <div className={style.profile_info}>
                                     <div style={{display: "flex", flexDirection: "row", gap: "10px"}}>
-                                        <p className={style.context_user}>Username</p>
+                                        {data ? <p className={style.context_user}>{data.name}</p> : <p className={style.context_user}></p>}
                                         <Dropdown>
                                                 <a href="#" style={{color: "#fff", fontWeight: "bold"}}>Сменить никнейм</a>
                                                 <a href="#" style={{color: "#fff", fontWeight: "bold"}}>Сменить аватар</a>
@@ -68,5 +77,15 @@ export default function Profile() {
                 </div>
             </div>
         </main>
-    )
+)
+};
+
+export default function ProfilePage() {
+    BubbleControler();
+
+    return (
+        <ProtectedRoute>
+            <Profile />
+        </ProtectedRoute>
+    );
  }

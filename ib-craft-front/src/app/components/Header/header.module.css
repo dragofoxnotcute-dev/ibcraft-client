@@ -105,19 +105,19 @@
 
 /* временный */
 #login {
-    content: url(../../static/alt-key-svgrepo-com.svg);
+    content: url(../../../shared/static/alt-key-svgrepo-com.svg);
     width: 21px;
     height: 21px;
 }
 
 #map_ico {
-    content: url(../../static/map.svg);
+    content: url(../../../shared/static/map.svg);
     width: 24px;
     height: 21px;
 }
 
 #rules_ico {
-    content: url(../../static/rules.svg);
+    content: url(../../../shared/static/rules.svg);
     width: 24px;
     height: 21px;
 }

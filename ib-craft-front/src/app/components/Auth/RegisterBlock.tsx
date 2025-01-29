@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import lock from "../../static/3d-lock.png"
+import lock from "@static/3d-lock.png"
 import style from "./auth.module.css"
 import Link from "next/link";
 import SubmitButton from "../Buttons/SubmitButton";

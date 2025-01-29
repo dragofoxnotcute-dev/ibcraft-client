@@ -1,6 +1,6 @@
 import style from './titleblock.module.css'
-import moderator_skin from "../../static/ib_craft_moderader.svg"
-import ilyaskin from "../../static/ib_craft_owner.svg"
+import moderator_skin from "@static/ib_craft_moderader.svg"
+import ilyaskin from "@static/ib_craft_owner.svg"
 import Image from "next/image";
 
 function TitleBlock () {
