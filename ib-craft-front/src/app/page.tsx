@@ -7,6 +7,7 @@ import QuestionsBlock from "./components/questionsBlock/QuestionsBlock";
 import TitleBlock from "./components/titleBlock/TitleBlock";
 import styles from "./page.module.css";
 import BubbleBackground from "./components/EffectComponents/BubbleContainer";
+import Header from "./components/Header/Header";
 
 export default function Home() {
   useEffect(() => {

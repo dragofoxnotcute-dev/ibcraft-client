@@ -4,6 +4,8 @@ import "@styles/reset.css";
 import "@styles/globals.css"
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import { AuthProvider } from "./components/Auth/AuthContext";
+
 
 
 const Oxygen = localFont({
@@ -27,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${Oxygen.variable} soid`}>
-        <Header/>
-        {children}
-        <Footer/>
+        <AuthProvider>
+          <Header/>
+          {children}
+          <Footer/>
+        </AuthProvider>
       </body>
     </html>
   );

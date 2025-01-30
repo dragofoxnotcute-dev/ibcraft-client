@@ -6,9 +6,11 @@ import style from "./header.module.css"
 import logo from "@static/logo.svg"
 import Link from "next/link";
 import Image from "next/image";
+import { useAuth } from "../Auth/AuthContext";
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const { user, isAuth, logout} = useAuth();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -20,7 +22,6 @@ function Header() {
         } else {
             document.body.style.overflow = '';
         }
-
         return () => {
             document.body.style.overflow = '';
         };
@@ -62,10 +63,16 @@ function Header() {
                                      </Link>
                                  </li>
                                  <li className={style.list_nav}>
-                                     <Link href="/auth" className={style.nav_btn}>
-                                         <p className={style.login}>Авторизация</p>
-                                         <span id={style.login} className={style.btn_ico}></span>
-                                     </Link>
+                                     {isAuth ? <>
+                                        <div>{user?.name}</div>
+                                        <Link href="/profile">profile</Link>
+                                        <a href="" onClick={logout}>logout</a>
+                                     </> : 
+                                        <Link href="/auth" className={style.nav_btn}>
+                                            <p className={style.login}>Авторизация</p>
+                                            <span id={style.login} className={style.btn_ico}></span>
+                                        </Link>
+                                     }
                                  </li>
                                  <ul className={style.social_btn}>
                                     <li className={style.list_nav}>

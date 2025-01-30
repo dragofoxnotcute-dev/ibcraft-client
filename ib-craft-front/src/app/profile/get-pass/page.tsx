@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/app/components/Auth/AuthContext";
 import ProtectedRoute from "@/app/components/Auth/ProtectedRoute";
 import BubbleControler from "@/app/components/EffectComponents/BubbleControler";
 import FormPass from "@/app/components/forms/formspass";
@@ -7,6 +8,7 @@ import FormPass from "@/app/components/forms/formspass";
 
 
 export default function GetPenetrationPage() {
+    const { user, isAuth } = useAuth();
     BubbleControler();
     return (
         <ProtectedRoute>

@@ -5,8 +5,10 @@ import style from "./auth.module.css"
 import Link from "next/link";
 import SubmitButton from "../Buttons/SubmitButton";
 import { useState } from "react";
-import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
+import { fetchLogin } from "@/app/hook/hookUser";
+import { useAuth } from "./AuthContext";
+
 
 function LoginBlock() {
     const [email, setEmail] = useState("");
@@ -16,25 +18,23 @@ function LoginBlock() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const redirect = searchParams.get('redirect') || '/';
+    const { login } = useAuth();
 
     const handleSubmit = async () => {
         setLoading(true);
-        console.log('Email:', email);
-        try {
-            const payload = {
-                email,
-                password,
-            };
-            const api = process.env.NEXT_PUBLIC_SERVER_URL_HTTP;
-            await axios.post(api + '/login', payload, { withCredentials: true });
-            router.push(redirect)
-        } catch (error) {
-            console.error('Error sending data:', error);
-            setError('An error occurred while sending data.');
-        } finally {
+        const post = await fetchLogin({ email, password });
+
+        if (post.status === 200) {
+            login();
+            router.push(redirect);
+        }
+         
+        if (post.status === 400) {
+            setError("Неверный логин или пароль");
             setLoading(false);
         }
-    };
+        
+    }
 
     return (
         <>

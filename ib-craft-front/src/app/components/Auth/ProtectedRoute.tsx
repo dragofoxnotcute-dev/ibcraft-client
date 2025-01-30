@@ -1,46 +1,23 @@
 "use client"
 
 import { usePathname, useRouter } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 import Cookies from "js-cookie";
-import axios from "axios";
+import { useAuth } from "./AuthContext";
 
-export default function ProtectedRoute({ children }: { children: ReactNode }) {
-    const router = useRouter();
+
+export default function ProtectedRoute({ children }: { children: ReactNode}) {
+   ;
     const pathname = usePathname();
-    const token = Cookies.get("dragonkey");
-    const [isAutorized, setIsAutorized] = useState(true);
-
-
-    const api = process.env.NEXT_PUBLIC_SERVER_URL_HTTP;
-     const fetchCheckToken = async () => {
-        try {
-            const response = await axios.get(api + '/chack-token', { withCredentials: true,  headers: {
-              'Accept': 'application/json',
-          } });
-            console.log('Server response:', response.data);
-            setIsAutorized(true);
-        } catch (error) {
-          if (axios.isAxiosError(error) && error.response) {
-            console.error('Ошибка запроса:', error.response.data); // Полный JSON-ответ
-            console.error('Сообщение:', error.response.data.message); // Только текст ошибки
-        } else {
-            console.error('Ошибка сети:', error);
-        }
-        }
-     }
-
+    const router = useRouter();
+    const { isAuth } = useAuth();
     useEffect(() => { 
-
-      if (!token) {
+      if (!isAuth) {
         router.push(`/auth/login?redirect=${pathname}`);
-        setIsAutorized(false);
-      } else {
-        fetchCheckToken();
-      }
+      } 
+      }, [isAuth, router, pathname]);
 
-      }, [router, pathname]);
+      if (isAuth === null) return <div>Загрузка...</div>;
 
-    
-      return <>{isAutorized ? children : null}</>;
+      return <>{children}</>;
 }
