@@ -8,17 +8,20 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { fetchLogin } from "@/app/hook/hookUser";
 import { useAuth } from "./AuthContext";
+import Alert from "../alert/succesAlert";
 
 
 function LoginBlock() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    // const [error, setError] = useState("");
     const router = useRouter();
     const searchParams = useSearchParams();
     const redirect = searchParams.get('redirect') || '/';
-    const { login } = useAuth();
+    const { login, setAlert, alertMessage, alertColor, alertSuccess } = useAuth();
+
+    
 
     const handleSubmit = async () => {
         setLoading(true);
@@ -26,13 +29,24 @@ function LoginBlock() {
 
         if (post.status === 200) {
             login();
+            setAlert("Успешно", "green");
             router.push(redirect);
+            return;
         }
          
         if (post.status === 400) {
-            setError("Неверный логин или пароль");
             setLoading(false);
+            setAlert("Неверный логин или пароль", "red");
         }
+
+        if (post.status === 500) {
+            setAlert("Неудолось подключится к сверверу,\n войти не удалось пожалуйста попробуйте позже", "red")
+            setLoading(true);
+        }
+
+        // setTimeout(() => {
+        //     clearAlert();
+        // }, 3000);
         
     }
 
@@ -53,7 +67,7 @@ function LoginBlock() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}/>
                 </div>
-                {error && <p className={style.error}>{error}</p>}
+                
                 <div className={style.group_auth_btn}>
                     <SubmitButton onClick={handleSubmit} 
                     disabled={loading} 
@@ -70,6 +84,12 @@ function LoginBlock() {
                     <a href="!#" className={style.support_btn}>Восстановить доступ</a>
                 </div>
             </div>
+
+            {alertMessage && (
+                <Alert Success={alertSuccess} Color={alertColor}>
+                    {alertMessage}
+                </Alert>
+            )}
         </>
     )
 }

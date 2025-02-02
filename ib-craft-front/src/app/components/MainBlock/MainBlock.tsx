@@ -4,6 +4,7 @@ import { useState } from "react";
 import style from "./mainblock.module.css";
 import Link from "next/link";
 import OptionsButton from "../Buttons/OptionsButton";
+import ClipAlert from "../alert/clipAlert";
 
 function MainBlock() {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -26,15 +27,9 @@ function MainBlock() {
         
         <div className={style.main}>
             <div className="container">
-                <div className={`${style.clip}  ${copySuccess ? style.active_clip : ""}`}>
-                    <div className={`${style.clipboard}`}>
-                        <div className={style.text_title}>
-                            ✅ Скопировано!
-                        </div>
-                    </div>
-                </div>
-                    
-
+                <ClipAlert copySuccess={copySuccess}>
+                    ✅ Скопировано!
+                </ClipAlert>
                 <div className={style.wrapper}>
                     <div className={style.discription_block}>
                         <p className={style.discription_context}>

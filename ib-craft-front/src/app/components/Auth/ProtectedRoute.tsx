@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 import Cookies from "js-cookie";
 import { useAuth } from "./AuthContext";
+import Loader from "../Loader";
 
 
 export default function ProtectedRoute({ children }: { children: ReactNode}) {
@@ -17,7 +18,11 @@ export default function ProtectedRoute({ children }: { children: ReactNode}) {
       } 
       }, [isAuth, router, pathname]);
 
-      if (isAuth === null) return <div>Загрузка...</div>;
+      if (isAuth === null) return <div><Loader/></div>;
 
-      return <>{children}</>;
+      return (
+        <>
+          {isAuth ? children : <div><Loader/></div>}
+        </>
+      )
 }
