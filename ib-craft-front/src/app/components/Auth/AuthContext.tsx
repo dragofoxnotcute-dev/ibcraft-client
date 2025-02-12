@@ -9,7 +9,7 @@ import Loader from "../Loader";
 
 
 interface AuthContextType {
-    user: any;
+    user: User | null;
     isAuth?: boolean;
     alertMessage?: string | null;
     alertColor?: string;

@@ -1,5 +1,6 @@
 import axios from "axios";
 import api from "../api/api";
+import Cookies from "js-cookie";
 
 const fetchUser = async () => {
     try {
@@ -36,6 +37,7 @@ const fetchCheckToken = async () => {
       if (axios.isAxiosError(error) && error.response) {
         console.log('Ошибка запроса:', error.response.data.error); 
         console.log('Сообщение:', error.response.data.message); 
+        Cookies.remove("dragonkey")
         return { data: null, status: error.response.status };
     } else {
         console.error('Ошибка сети:', error);

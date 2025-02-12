@@ -137,6 +137,62 @@
     display: none;
 }
 
+.dropdown_content{
+    display: flex;
+    position: relative;
+    display: inline-block;
+    transition: .3s
+    
+}
+
+.header_dropdown{
+    display: none;
+    position: absolute;
+    background-color: #2b0d44;
+    min-width: 160px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%; 
+    padding-top: 5px; 
+}
+
+.header_dropdown a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: .5s;
+    font-weight: bold;
+  }
+
+.dropdown_content:hover .header_dropdown {
+    display: block;
+}
+  
+.header_dropdown a:hover {
+    background-color: #13061e;
+}
+
+
+
+.userIco{
+    width: 26px;
+    height: 26px;
+    border-radius: 30px;
+    gap: 10px;
+    left: 0px;
+}
+
+.user_btn {
+    display: flex;
+    flex-direction:row;
+    padding: 10px;
+    background-color: var(--buttonscolor);
+    border-radius: 20px;
+}
+
+
 @media (max-width: 1320px) {
     .header {
         min-width: 100%;
