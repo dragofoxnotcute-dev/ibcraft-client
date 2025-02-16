@@ -9,8 +9,8 @@ const fetchUser = async () => {
     } catch (error) {
         console.log('Error fetching user:', error);
         return null;
-    }
-}
+    };
+};
 
 const fetchLogin = async (payload: { email: string, password: string }) => {
     try {
@@ -26,7 +26,7 @@ const fetchLogin = async (payload: { email: string, password: string }) => {
         }
     }
 
-}
+};
 
 const fetchCheckToken = async () => {
     try {
@@ -44,7 +44,7 @@ const fetchCheckToken = async () => {
         return { data: null, status: 500 };
     }
  }
-}
+};
 
 export  { fetchUser, fetchLogin, fetchCheckToken };
 

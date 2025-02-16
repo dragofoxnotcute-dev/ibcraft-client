@@ -7,7 +7,7 @@ import logo from "@static/logo.svg"
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../Auth/AuthContext";
-import Dropdown from "../Dropdown/Dropdown";
+
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -66,12 +66,12 @@ function Header() {
                                  <li className={style.list_nav}>
                                      {isAuth ? <>
                                         <div className={style.dropdown_content}>
-                                            <a className={`${style.user_btn} ${style.flex}`}>
+                                            <Link href="/profile" className={`${style.user_btn} ${style.flex}`}>
                                                 {user?.avatarIco ? <><img src={user.avatarIco} alt="user" className={style.userIco} /></> : 
                                                 <>
                                                     <img src="https://pbs.twimg.com/profile_images/1860801420510793728/adaqs3h4_400x400.jpg" alt="user"  className={style.userIco}/>
                                                 </>}     
-                                            </a>
+                                            </Link>
                                             <div className={style.header_dropdown}>
                                                 <p className={style.username}>{user?.name}</p>
                                                 <Link href="/profile">Профиль</Link>

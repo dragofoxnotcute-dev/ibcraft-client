@@ -177,21 +177,41 @@
 
 
 .userIco{
-    width: 26px;
-    height: 26px;
+    display: flex;
+    width: 40px;
+    height: 40px;
     border-radius: 30px;
-    gap: 10px;
-    left: 0px;
+    align-items: center;
+    justify-content: center;
 }
 
 .user_btn {
+    position: relative;
     display: flex;
-    flex-direction:row;
-    padding: 10px;
-    background-color: var(--buttonscolor);
-    border-radius: 20px;
+    flex-direction: row;
+    width: 50px;
+    height: 37px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 5px;
+    transition: .5s;
+    border-radius: 30px;
+    margin-left: 5px;
+    margin-right: 10px;
 }
 
+.dropdown_content:hover .user_btn,
+.user_btn:hover {
+   background-color: var(--buttonhovercolor);
+}
+
+.username {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: #13061e 2px solid;
+}
 
 @media (max-width: 1320px) {
     .header {

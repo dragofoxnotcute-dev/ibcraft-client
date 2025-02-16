@@ -1,15 +1,19 @@
 "use client";
 
 import style from "./profile.module.css";
-import SubmitButton from "../components/Buttons/SubmitButton";
 import Dropdown from "../components/Dropdown/Dropdown";
 import ProtectedRoute from "../components/Auth/ProtectedRoute";
 import BubbleControler from "../components/EffectComponents/BubbleControler";
 import { useAuth } from "../components/Auth/AuthContext";
 import User from "../hook/IUser";
+import StatusBlock from "../components/statusblock/StatusBlock";
+import ButtonQuestionnaireLink from "../components/statusblock/ButtonQuestionnaireLink";
 
 
-const Profile = ({ avatarIco, name }: User) => {
+
+
+const Profile = ({ avatarIco, name, id }: User) => {
+       
     return (
         <main>
             <div className="container">
@@ -31,13 +35,13 @@ const Profile = ({ avatarIco, name }: User) => {
                                         </Dropdown>
                                     </div>
                                     <div style={{width: "340px"}}>
-                                        <SubmitButton onClick={() => {}} disabled={false} loading={false} icon={""} href="/profile/get-pass">Подать на получение проходки</SubmitButton>
+                                        <ButtonQuestionnaireLink Id={id} />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className={style.status_block}>
-                            
+                            {id ? <StatusBlock userId={id}/> : <></>}
                         </div>
                     </div>
                 </div>
@@ -49,6 +53,7 @@ const Profile = ({ avatarIco, name }: User) => {
 export default function ProfilePage() {
     BubbleControler();
     const { user } = useAuth();
+    
     return (
         <ProtectedRoute>
             <Profile {...user} />

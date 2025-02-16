@@ -36,7 +36,6 @@ export const AuthProvider = ({ children } : {children: React.ReactNode}) => {
     useEffect(() => {
         const verifyUser = async () => {
             try {
-                
                 const response = await fetchCheckToken();
                 if (response.status === 200) {
                     const user = await fetchUser();
