@@ -8,11 +8,16 @@ interface ButtonQuestionnaireLinkProps {
 
 export default function ButtonQuestionnaireLink({ Id }: ButtonQuestionnaireLinkProps) {
     const [disabledBtn, setDisabledBtn] = useState<boolean>(true);
-    const status = useStatus(Id ?? "");
+    var status = useStatus(Id ?? "");
     
     useEffect(() => {
         if (status === "Unfiled" || status === null)
+        {
             setDisabledBtn(false);
+        } else {
+            setDisabledBtn(true);
+        }
+        
     }, [status])
 
     return (
