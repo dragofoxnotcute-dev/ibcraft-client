@@ -36,7 +36,7 @@
 .profile_info {
     display: flex;
     flex-direction: row;;
-    gap: 90px;
+    gap: 120px;
     align-items: center;
     max-height: 100px;
 }

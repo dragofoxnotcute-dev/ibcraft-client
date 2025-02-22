@@ -2,7 +2,6 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
-import Cookies from "js-cookie";
 import { useAuth } from "./AuthContext";
 import Loader from "../Loader";
 

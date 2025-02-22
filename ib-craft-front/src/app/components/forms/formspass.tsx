@@ -1,26 +1,79 @@
 "use client";
 
 import SubmitButton from "../Buttons/SubmitButton"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import style from "./pass.module.css"
 
 import Link from "next/link";
-
+import { fetchSend } from "@/app/hook/HookQuestionnaire";
+import { useAuth } from "../Auth/AuthContext";
+import { useRouter } from "next/navigation";
+import Alert from "../alert/succesAlert";
 
 export default function FormPass() {
     const  [rangeBuild, setRangeBuild] = useState(10);
     const  [rangeAdequacy, setRangeAdequacy] = useState(10);
+    const  [age, setAge] = useState<number>();
+    const  [playtime, setPlaytime] = useState<string>();
+    const  [rule, setRule] = useState<boolean>();
+    const  [playingRp, setPlayingRp] = useState<boolean>();
+    const  [license, setLicense] = useState<boolean>();
+    const  [discription, setDiscription] =  useState<string>();
+    const { setAlert, alertColor, alertMessage, alertSuccess } = useAuth();
+    const readirect = useRouter();
 
-    const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    const handleRangeBuildChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRangeBuild(Number(event.target.value));
     };
 
     const handleRangeAdequacyChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
         setRangeAdequacy(Number(event.target.value));
     };
+
+    const handleSubmit = async () => {
+        if (rule === undefined || playingRp === undefined || license === undefined) {
+            setAlert("Не все поля были заполнины!", "red");
+            return;
+        };
+
+        if (age === undefined || playtime === undefined || discription == undefined) {
+            setAlert("Не все поля были заполнины!", "red");
+            return;
+        };
+
+        if (isNaN(age)) {
+            setAlert("Поле возраст принимает только числа", "red");
+            return
+        }
+
+
+        const sendPost = await fetchSend({
+            age: age, 
+            playingTime: playtime,
+            acceptRule: rule, 
+            playingServer: playingRp, 
+            licenseMinecraft: license, 
+            buildingLevel: rangeBuild,
+            adequacyLevel: rangeAdequacy,
+            discription: discription});
+        
+        if (sendPost.code !== 200) {
+            return setAlert(sendPost.data, "red");
+        }
+
+        setAlert("Ваша заявка на проходку отпралена в обработку.", "green");
+        readirect.push("/profile");
+    }
+
     
     return (
         <main className={style.main}>
+            {alertMessage && (
+                    <Alert Success={alertSuccess} Color={alertColor}>
+                        {alertMessage}
+                    </Alert>
+                )}
                 <div className="container">
                     <div className={style.title}>
                         <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enableBackground="new 0 0 100 100" fill="green" className={style.creeper}>
@@ -42,16 +95,18 @@ export default function FormPass() {
                         <p>Для получения проходки на сервер IB-CRAFT вам необходимо заполнить анкету</p>
                         <p><span className={style.animated_gradient}>Получить проходку на сервер можно только с 13 лет!</span></p>
                     </div>
-                    <div className={style.form_block}>
+                    <div className={style.form_block} >
                         <div className={style.from_data_age}>
                             <div className={style.inputs_age}>
                                 <p className={style.placeholder_input}>Ваш возраст</p>
-                                <input type="text" className={style.input} />
+                                <input type="text" className={style.input} name="age" onChange={(e) => {
+                                        setAge(Number(e.target.value))
+                                }}  />
                                 <p className={style.discripton}>Сколька вам полных лет</p>
                             </div>
                             <div className={style.inputs_playing}>
                                 <p className={style.placeholder_input}>Как долго вы играете в Minecraft</p>
-                                <input type="text" className={style.input} />
+                                <input type="text" className={style.input} name="playtime" onChange={(e) => setPlaytime(e.target.value)}/>
                                 <p className={style.discripton}>Укажите, сколька лет вы играете Minecraft</p>
                             </div>
                         </div>
@@ -60,11 +115,20 @@ export default function FormPass() {
                                 <p className={style.placeholder_input}>Вы ознакомлены с правилами сервера?</p>
                                 <div className={style.checkbox_block}>
                                     <div>
-                                        <input type="radio" placeholder="Да" className={style.checkbox_input} id="rule_accept" value="1" name="rule" />
+                                        <input type="radio" placeholder="Да" className={style.checkbox_input} 
+                                        id="rule_accept" 
+                                        value="true" 
+                                        name="rule"
+                                        onChange={() => setRule(true)} 
+                                        />
                                         <label htmlFor="rule_accept">Да</label>
                                     </div>
                                     <div>
-                                        <input type="radio" placeholder="Нет" className={style.checkbox_input} id="rule_notaccept" value="1" name="rule" />
+                                        <input type="radio" placeholder="Нет" className={style.checkbox_input} 
+                                        id="rule_notaccept" 
+                                        value="false" 
+                                        name="rule"
+                                        onChange={() => setRule(false)} />
                                         <label htmlFor="rule_notaccept">Нет</label>
                                     </div>
                                 </div>
@@ -74,11 +138,25 @@ export default function FormPass() {
                                 <p className={style.placeholder_input}>Вы когда ни будь играли до этого на РП серверах?</p>
                                 <div className={style.checkbox_block}>
                                     <div>
-                                        <input type="radio" placeholder="Да" className={style.checkbox_input} id="playing_accept" value="1" name="playing" />
+                                        <input type="radio" 
+                                        placeholder="Да" 
+                                        className={style.checkbox_input} 
+                                        id="playing_accept" 
+                                        value="true" 
+                                        name="playing_rp"
+                                        checked={playingRp === true}
+                                        onChange={() => setPlayingRp(true)} />
                                         <label htmlFor="playing_accept">Да</label>
                                     </div>
                                     <div>
-                                        <input type="radio" placeholder="Нет" className={style.checkbox_input} id="playing_notaccept" value="1" name="playing" />
+                                        <input type="radio" 
+                                        placeholder="Нет" 
+                                        className={style.checkbox_input} 
+                                        id="playing_notaccept" 
+                                        value="false" 
+                                        name="playing_rp"
+                                        checked={playingRp === false}
+                                        onChange={() => setPlayingRp(false)}/>
                                         <label htmlFor="playing_notaccept">Нет</label>
                                     </div>
                                 </div>
@@ -88,11 +166,23 @@ export default function FormPass() {
                                 <p className={style.placeholder_input}>У вас есть лицензия Minecraft?</p>
                                 <div className={style.checkbox_block}>
                                     <div>
-                                        <input type="radio" placeholder="Да" className={style.checkbox_input} id="accept" value="1" name="license" />
+                                        <input type="radio" 
+                                        placeholder="Да" 
+                                        className={style.checkbox_input} 
+                                        id="accept" 
+                                        value="true" 
+                                        name="license"
+                                        onChange={() => {setLicense(true)}}/>
                                         <label htmlFor="accept">Да</label>
                                     </div>
                                     <div>
-                                        <input type="radio" placeholder="Нет" className={style.checkbox_input} id="notaccept" value="1" name="license" />
+                                        <input type="radio" 
+                                        placeholder="Нет" 
+                                        className={style.checkbox_input} 
+                                        id="notaccept" 
+                                        value="false" 
+                                        name="license"
+                                        onChange={() => {setLicense(false)}} />
                                         <label htmlFor="notaccept">Нет</label>
                                     </div>
                                 </div>
@@ -101,7 +191,7 @@ export default function FormPass() {
                         <div className={style.slide_container}>
                             <div className={style.slide_block}>
                                 <p className={style.placeholder_input}>Вы хорошо строите?</p>
-                                <input type="range" min="0" max="10" value={rangeBuild} className={style.slider} onChange={handleRangeChange}/>
+                                <input type="range" min="0" max="10" value={rangeBuild} className={style.slider} onChange={handleRangeBuildChange}/>
                                 <p className={style.discripton}>Выбранное значение: {rangeBuild}</p>
                                 <p className={style.discripton}>0 - Нет, мой пик креативности и красоты - коробки из грязи / 5 - Могу построить 
                                     неплохой уютный домик, не самый красивый, но и не коробка / 10 - Да, строю прекрасные масштабные постройки уровня 2B2T
@@ -118,11 +208,11 @@ export default function FormPass() {
                         </div>
                         <div className={style.about_me}>
                             <p className={style.placeholder_input}>Чем вы планируете заниматься на нашем сервере?</p>
-                            <textarea className={style.textarea} />
+                            <textarea className={style.textarea}  name="discription" onChange={(e) => {setDiscription(e.target.value)}} />
                             <p className={style.discripton}>Напишите, чем вы будете заниматься играя на нашем сервере, какие у вас цели, планы или идеи</p>
                         </div>
                         <div className={style.buttons}>
-                            <SubmitButton onClick={() => { } } disabled={false} loading={false} icon={""}>
+                            <SubmitButton onClick={handleSubmit} disabled={false} loading={false} icon={""} href="#!">
                                 <p>Отправить заявку</p>
                             </SubmitButton>
                         </div>

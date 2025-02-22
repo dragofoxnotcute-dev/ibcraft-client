@@ -22,18 +22,17 @@
 }
 
 .succesBlock {
-
     position: fixed;
     display: flex;
-    top: 900px;
+    top: 800px;
     right: -280px;
     z-index: 1;
     transition: 0.3s;
 }
 
 .alert {
-    width: 210px;
-    max-height: 200px;
+    min-width: 310px;
+    max-height: 100px;
     position: absolute;
     color: white;
     padding: 5px 10px;
@@ -46,8 +45,8 @@
 }
 
 .active {
-    right: 280px;
-}
+    right: 380px;
+} 
 
 .clipboard {
     width: 200px;

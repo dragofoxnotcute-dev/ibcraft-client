@@ -8,20 +8,19 @@ import { useAuth } from "../components/Auth/AuthContext";
 import User from "../hook/IUser";
 import StatusBlock from "../components/statusblock/StatusBlock";
 import ButtonQuestionnaireLink from "../components/statusblock/ButtonQuestionnaireLink";
-
-
+import Image from "next/image";
+import icouser from "@static/GkSrQGFXUAA0Ar_.png"
 
 
 const Profile = ({ avatarIco, name, id }: User) => {
-       
-    return (
+       return (
         <main>
             <div className="container">
                 <div className={style.profile_container}>
                     <div className={style.profile_block}>
                         <div style={{display: "flex", flexDirection: "row", gap: "20px"}}>
                             <div className={style.profile_avatar} style={{height: "100px", width: "100px"}}>
-                                {avatarIco ? <img src={avatarIco} alt="avatar" className={style.avatar}/> : <img src="https://pbs.twimg.com/profile_images/1860801420510793728/adaqs3h4_400x400.jpg" alt="avatar" className={style.avatar}/>
+                                {avatarIco ? <img src={avatarIco} alt="avatar" className={style.avatar}/> : <Image src={icouser} alt="avatar" className={style.avatar}/>
                             }
                             </div>
                             <div className={style.profile}>

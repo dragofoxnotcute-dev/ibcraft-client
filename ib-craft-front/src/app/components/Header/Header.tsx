@@ -7,6 +7,7 @@ import logo from "@static/logo.svg"
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../Auth/AuthContext";
+import icouser from "@static/GkSrQGFXUAA0Ar_.png"
 
 
 function Header() {
@@ -69,7 +70,7 @@ function Header() {
                                             <Link href="/profile" className={`${style.user_btn} ${style.flex}`}>
                                                 {user?.avatarIco ? <><img src={user.avatarIco} alt="user" className={style.userIco} /></> : 
                                                 <>
-                                                    <img src="https://pbs.twimg.com/profile_images/1860801420510793728/adaqs3h4_400x400.jpg" alt="user"  className={style.userIco}/>
+                                                    <Image src={icouser} alt="user"  className={style.userIco}/>
                                                 </>}     
                                             </Link>
                                             <div className={style.header_dropdown}>
