@@ -1,7 +1,7 @@
 "use client"
 
 import { fetchCheckToken, fetchUser } from "@/app/hook/hookUser";
-import User from "@/app/hook/IUser";
+import { User } from "@/app/hook/IUser";
 import { useEffect, useState, createContext, useContext } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children } : {children: React.ReactNode}) => {
                         router.push(redirectUri);
                 }
 
-               
+    
             } catch {
                 setUser(null);
                 setIsAuth(false);

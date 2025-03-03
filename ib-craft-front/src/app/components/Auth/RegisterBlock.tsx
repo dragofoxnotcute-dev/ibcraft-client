@@ -8,6 +8,9 @@ import SubmitButton from "../Buttons/SubmitButton";
 import useFormRegisterStore from "@/app/auth/register/registerStorage";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import Loader from "../Loader";
+import { fetchRegister } from "@/app/hook/hookUser";
+import { useRouter } from "next/navigation";
 
 
 type FormStepFirst = {
@@ -24,6 +27,7 @@ export default function RegisterBlock() {
 
     const {step, setStep, data, updateData } = useFormRegisterStore();
     const [ruleAccept, setRuleAccept] = useState(false);
+    const readirect = useRouter();
 
     const { 
         register: registerStepFirst, 
@@ -49,9 +53,20 @@ export default function RegisterBlock() {
         setStep(1);
     }
 
-    const onSubmitSecond: SubmitHandler<FormStepSecond> = (formData) => {
+    const onSubmitSecond: SubmitHandler<FormStepSecond> = async (formData) => {
         updateData(formData);
-        console.log("Данные:", {...data, ...formData })
+        const sendRegister = await fetchRegister({...data, ...formData});
+
+        setStep(3);
+
+        if (sendRegister.status !== 200 ) {
+            console.error("Что-то пошло не так");
+            setStep(1);
+            return;
+        }
+
+        console.log("Формв регистрации отправлена на сервер!")
+        readirect.push("/auth/login");
     }
 
     useEffect(() => {
@@ -118,6 +133,10 @@ export default function RegisterBlock() {
                 <button type="submit" className={style.button}>Зарегистрироваться</button>
                 <a href="" className={style.support_btn} onClick={onForward}>Вернутся назад</a>
             </form>
+           )}
+
+           {step === 3 && (
+                <Loader />
            )}
         </>
     )

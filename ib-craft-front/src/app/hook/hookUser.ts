@@ -1,6 +1,8 @@
 import axios from "axios";
 import api from "../api/api";
 import Cookies from "js-cookie";
+import { TypefetchRegister } from "./IUser";
+
 
 const fetchUser = async () => {
     try {
@@ -18,15 +20,44 @@ const fetchLogin = async (payload: { email: string, password: string }) => {
         return { data: response.data, status: response.status };
     } catch (error) {
         if(axios.isAxiosError(error) && error.response) {
-            console.error('Error fetching login:', error.response.data.error);
+            console.error('Error fetching login:', error.response.data);
             return { data: null, status: error.response.status };
         } else {
             console.error('Network error:', error);
             return { data: null, status: 500 };
         }
     }
-
 };
+
+const fetchRegister = async (payload: TypefetchRegister) => {
+   try {
+    const response = await api.post("/register", payload);
+    return { data: response.data, status: response.status}
+   } catch (error) {
+    if(axios.isAxiosError(error) && error.response) {
+        console.error('Error fetching:', error.response.data);
+        return { data: null, status: error.response.status };
+    } else {
+        console.error('Network error:', error);
+        return { data: null, status: 500 };
+    }
+   }
+}
+
+const fetchConfirmUser = async (payload: {token: string, email: string}) => {
+    try {
+        const response = await api.put("/confirm-email", payload)
+        return { data: response.data, status: response.status}
+    } catch (error) {
+        if(axios.isAxiosError(error) && error.response) {
+            console.error('Error fetching:', error.response.data);
+            return { data: null, status: error.response.status };
+        } else {
+            console.error('Network error:', error);
+            return { data: null, status: 500 };
+        }
+    }
+}
 
 const fetchCheckToken = async () => {
     try {
@@ -37,7 +68,7 @@ const fetchCheckToken = async () => {
       if (axios.isAxiosError(error) && error.response) {
         console.log('Ошибка запроса:', error.response.data.error); 
         console.log('Сообщение:', error.response.data.message); 
-        Cookies.remove("dragonkey")
+        Cookies.remove("dragonkey");
         return { data: null, status: error.response.status };
     } else {
         console.error('Ошибка сети:', error);
@@ -46,5 +77,5 @@ const fetchCheckToken = async () => {
  }
 };
 
-export  { fetchUser, fetchLogin, fetchCheckToken };
+export  { fetchUser, fetchLogin, fetchCheckToken, fetchRegister, fetchConfirmUser };
 

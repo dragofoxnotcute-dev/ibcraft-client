@@ -4,4 +4,13 @@ interface User {
     avatarIco?: string;
 }
 
-export default User;
+
+type TypefetchRegister = {
+    confirmPassword: string;
+    email: string;
+    nikname: string;
+    password: string;
+}
+
+
+export type {User, TypefetchRegister};

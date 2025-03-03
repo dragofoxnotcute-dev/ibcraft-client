@@ -5,7 +5,7 @@ import Dropdown from "../components/Dropdown/Dropdown";
 import ProtectedRoute from "../components/Auth/ProtectedRoute";
 import BubbleControler from "../components/EffectComponents/BubbleControler";
 import { useAuth } from "../components/Auth/AuthContext";
-import User from "../hook/IUser";
+import { User } from "../hook/IUser";
 import StatusBlock from "../components/statusblock/StatusBlock";
 import ButtonQuestionnaireLink from "../components/statusblock/ButtonQuestionnaireLink";
 import Image from "next/image";
