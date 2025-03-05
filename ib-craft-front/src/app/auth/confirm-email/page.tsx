@@ -17,7 +17,6 @@ export default function ConfirmEmail() {
         if (token && email) {
             confirmEmailHandler(token, email);
         };
-
         setConfirm(false);
     }, [token, email]);
 

@@ -16,15 +16,14 @@ export default function GetPenetrationPage() {
     return (
         <ProtectedRoute>
             <ProtectedForm userId={user?.id}>
+                <>
                 {alertMessage && (
                     <Alert Success={alertSuccess} Color={alertColor}>
                         {alertMessage}
                     </Alert>
                 )}
-                
-                <div className="container">
                     <FormPass />
-                </div>
+                </>
             </ProtectedForm>
         </ProtectedRoute>
     )
