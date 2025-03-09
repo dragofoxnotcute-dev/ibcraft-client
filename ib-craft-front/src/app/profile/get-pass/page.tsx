@@ -1,5 +1,6 @@
 "use client";
 
+import { useAlert } from "@/app/components/alert/alertContext";
 import Alert from "@/app/components/alert/succesAlert";
 import { useAuth } from "@/app/components/Auth/AuthContext";
 import ProtectedRoute from "@/app/components/Auth/ProtectedRoute";
@@ -11,7 +12,8 @@ import ProtectedForm from "@/app/components/forms/ProtectedForm";
 
 export default function GetPenetrationPage() {
     BubbleControler();
-    const { alertMessage, alertColor, alertSuccess, user } = useAuth();
+    const { alertMessage, alertColor, alertSuccess } = useAlert();
+    const { user } = useAuth();
 
     return (
         <ProtectedRoute>

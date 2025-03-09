@@ -29,6 +29,21 @@ const fetchLogin = async (payload: { email: string, password: string }) => {
     }
 };
 
+const fetchForgotPassword = async (payload: { email: string }) => {
+    try {
+        const response = await api.post('/forgot', payload);
+        return { data: response.data, status: response.status };
+    } catch (error) {
+        if(axios.isAxiosError(error) && error.response) {
+            console.error('Error fetching:', error.response.data);
+            return { data: null, status: error.response.status };
+        } else {
+            console.error('Network error:', error);
+            return { data: null, status: 500 };
+        }
+    }
+};
+
 const fetchRegister = async (payload: TypefetchRegister) => {
    try {
     const response = await api.post("/register", payload);
@@ -47,6 +62,21 @@ const fetchRegister = async (payload: TypefetchRegister) => {
 const fetchConfirmUser = async (payload: {token: string, email: string}) => {
     try {
         const response = await api.put("/confirm-email", payload)
+        return { data: response.data, status: response.status}
+    } catch (error) {
+        if(axios.isAxiosError(error) && error.response) {
+            console.error('Error fetching:', error.response.data);
+            return { data: null, status: error.response.status };
+        } else {
+            console.error('Network error:', error);
+            return { data: null, status: 500 };
+        }
+    }
+}
+
+const fetctTokenReset = async (payload: {email: string, token: string}) => {
+    try {
+        const response = await api.post("/reset-token", payload);
         return { data: response.data, status: response.status}
     } catch (error) {
         if(axios.isAxiosError(error) && error.response) {
@@ -78,5 +108,5 @@ const fetchCheckToken = async () => {
     }
 };
 
-export  { fetchUser, fetchLogin, fetchCheckToken, fetchRegister, fetchConfirmUser };
+export  { fetchUser, fetchLogin, fetchCheckToken, fetchRegister, fetchConfirmUser, fetchForgotPassword, fetctTokenReset };
 

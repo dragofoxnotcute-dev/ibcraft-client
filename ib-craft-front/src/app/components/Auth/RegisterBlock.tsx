@@ -27,6 +27,7 @@ export default function RegisterBlock() {
 
     const {step, setStep, data, updateData } = useFormRegisterStore();
     const [ruleAccept, setRuleAccept] = useState(false);
+    const [loading, setLoading] = useState(false);
     const readirect = useRouter();
 
     const { 
@@ -55,11 +56,11 @@ export default function RegisterBlock() {
 
     const onSubmitSecond: SubmitHandler<FormStepSecond> = async (formData) => {
         updateData(formData);
+        setLoading(true);
         const sendRegister = await fetchRegister({...data, ...formData});
 
-        setStep(3);
-
         if (sendRegister.status !== 200 ) {
+            setLoading(false);
             console.error("Что-то пошло не так");
             setStep(1);
             return;
@@ -67,6 +68,8 @@ export default function RegisterBlock() {
 
         console.log("Формв регистрации отправлена на сервер!")
         readirect.push("/auth/login");
+        setLoading(false);
+        setStep(1);
     }
 
     useEffect(() => {
@@ -76,6 +79,7 @@ export default function RegisterBlock() {
 
     return (
         <>
+           {loading && <Loader />}
            {step === 1 && (
                 <>
                     <div className={style.title_auth}>
@@ -102,7 +106,7 @@ export default function RegisterBlock() {
                         </div>
                         <div className={style.support_group}>
                             <Link href="/auth/login" className={style.support_btn}>Если есть профиль</Link>
-                            <Link href="/auth/reset" className={style.support_btn}>Восстановить доступ</Link>
+                            <Link href="/auth/passwordforgot" className={style.support_btn}>Восстановить доступ</Link>
                         </div>
                     </form>
                 </>
@@ -133,10 +137,6 @@ export default function RegisterBlock() {
                 <button type="submit" className={style.button}>Зарегистрироваться</button>
                 <a href="" className={style.support_btn} onClick={onForward}>Вернутся назад</a>
             </form>
-           )}
-
-           {step === 3 && (
-                <Loader />
            )}
         </>
     )

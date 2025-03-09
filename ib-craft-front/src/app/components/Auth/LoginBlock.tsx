@@ -9,6 +9,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { fetchLogin } from "@/app/hook/hookUser";
 import { useAuth } from "./AuthContext";
 import Alert from "../alert/succesAlert";
+import { useAlert } from "../alert/alertContext";
 
 
 function LoginBlock() {
@@ -18,10 +19,10 @@ function LoginBlock() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const redirect = searchParams.get('redirect') || '/';
-    const { login, setAlert, alertMessage, alertColor, alertSuccess } = useAuth();
+    const { setAlert, alertMessage, alertColor, alertSuccess } = useAlert();
+    const { login } = useAuth();
 
     
-
     const handleSubmit = async () => {
         setLoading(true);
         const post = await fetchLogin({ email, password });
@@ -76,7 +77,7 @@ function LoginBlock() {
                 </div>
                 <div className={style.support_group}>
                     <Link href="/auth/register" className={style.support_btn}>Зарегистрироваться</Link>
-                    <a href="!#" className={style.support_btn}>Восстановить доступ</a>
+                    <Link href="/auth/passwordforgot" className={style.support_btn}>Восстановить доступ</Link>
                 </div>
             </div>
 

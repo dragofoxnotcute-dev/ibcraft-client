@@ -11,14 +11,9 @@ import Loader from "../Loader";
 interface AuthContextType {
     user: User | null;
     isAuth?: boolean;
-    alertMessage?: string | null;
-    alertColor?: string;
-    alertSuccess?: boolean;
     login: () => void;
     logout: () => void;
     redirectLogin: (redirect: string) => void;
-    setAlert: (message: string, color: string) => void;
-    clearAlert: () => void;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -28,10 +23,6 @@ export const AuthProvider = ({ children } : {children: React.ReactNode}) => {
     const [user, setUser] = useState<User | null>(null);
     const [isAuth, setIsAuth] = useState<boolean | null>(null);
     const [redirectUri, setRedirect] = useState<string | null>(null);
-
-    const [alertMessage, setAlertMessage] = useState<string | null>(null);
-    const [alertColor, setAlertColor] = useState<string>("green");
-    const [alertSuccess, setAlertSuccess] = useState<boolean>(false);
 
     useEffect(() => {
         const verifyUser = async () => {
@@ -85,33 +76,14 @@ export const AuthProvider = ({ children } : {children: React.ReactNode}) => {
             router.push(redirectUri)
     }
 
-    const setAlert = (message: string, color: string) => {
-        setAlertMessage(message);
-        setAlertColor(color);
-        setAlertSuccess(true);
-        setTimeout(() => {
-            setAlertSuccess(false);
-        }, 3000);
-        
-    };
-
-    const clearAlert = () => {
-        setAlertMessage(null);
-        setAlertSuccess(false);
-    };
 
     return (
         <AuthContext.Provider value={{ 
         user, 
         isAuth,
-        alertMessage, 
-        alertColor, 
-        alertSuccess,
         login, 
         logout, 
-        redirectLogin,
-        setAlert, 
-        clearAlert  }}>
+        redirectLogin }}>
             {children}
         </AuthContext.Provider>
     );

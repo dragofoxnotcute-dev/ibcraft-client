@@ -5,6 +5,7 @@ import "@styles/globals.css"
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { AuthProvider } from "./components/Auth/AuthContext";
+import { AlertProvider } from "./components/alert/alertContext";
 
 
 
@@ -30,9 +31,11 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${Oxygen.variable} soid`}>
         <AuthProvider>
-          <Header/>
-          {children}
-          <Footer/>
+          <AlertProvider>
+            <Header/>
+            {children}
+            <Footer/>
+          </AlertProvider>
         </AuthProvider>
       </body>
     </html>

@@ -7,11 +7,11 @@ import QuestionsBlock from "./components/questionsBlock/QuestionsBlock";
 import TitleBlock from "./components/titleBlock/TitleBlock";
 import styles from "./page.module.css";
 import BubbleBackground from "./components/EffectComponents/BubbleContainer";
-import { useAuth } from "./components/Auth/AuthContext";
 import Alert from "./components/alert/succesAlert";
+import { useAlert } from "./components/alert/alertContext";
 
 export default function Home() {
-  const { alertMessage, alertColor, alertSuccess } = useAuth();
+  const { alertMessage, alertColor, alertSuccess } = useAlert();
 
   useEffect(() => {
     document.body.style.cssText = `
