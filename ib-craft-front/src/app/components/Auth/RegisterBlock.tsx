@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader";
 import { fetchRegister } from "@/app/hook/hookUser";
 import { useRouter } from "next/navigation";
+import { useAlert } from "../alert/alertContext";
 
 
 type FormStepFirst = {
@@ -29,6 +30,7 @@ export default function RegisterBlock() {
     const [ruleAccept, setRuleAccept] = useState(false);
     const [loading, setLoading] = useState(false);
     const readirect = useRouter();
+    const { setAlert } = useAlert();
 
     const { 
         register: registerStepFirst, 
@@ -44,8 +46,20 @@ export default function RegisterBlock() {
 
     const onNextFirst: SubmitHandler<FormStepFirst> = (formData) => {
         if(!ruleAccept) {
+            setAlert("Вы должны принять правила проекта", "red");
             return;
         }
+
+        if (formData.password !== formData.confirmPassword) {
+            setAlert("Пароли не совпадают", "red");
+            return;
+        }
+        
+        if (formData.password.length < 6) {
+            setAlert("Пароль должен быть не менее 6 символов", "red");
+            return;
+        }
+
         updateData(formData);
         setStep(2);
     }
@@ -61,12 +75,12 @@ export default function RegisterBlock() {
 
         if (sendRegister.status !== 200 ) {
             setLoading(false);
-            console.error("Что-то пошло не так");
+            setAlert("Ошибка регистрации", "red");
             setStep(1);
             return;
         }
 
-        console.log("Формв регистрации отправлена на сервер!")
+        setAlert("Вы успешно зарегистровались, подтвердите вашу почту что зайти на свой профиль.", "green");
         readirect.push("/auth/login");
         setLoading(false);
         setStep(1);
@@ -94,7 +108,7 @@ export default function RegisterBlock() {
                         </div>
                         <div className={style.group_auth_btn}>
                             <div>
-                                <input type="checkbox" id="checkrule" onChange={() => setRuleAccept(true)} className={style.checkbox}/>
+                                <input type="checkbox" id="checkrule" checked={ruleAccept} onChange={() => setRuleAccept(prev => !prev)} className={style.checkbox}/>
                                 <label htmlFor="checkrule" className={style.labelctx}>Я согласен с <Link href="/rule" id={style.link_rule}> правилами </Link> данного проекта</label>
                             </div>
                             <button type="submit" className={style.button}>Продолжить</button>

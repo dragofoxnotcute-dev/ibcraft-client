@@ -6,8 +6,8 @@ import style from "./pass.module.css"
 
 import Link from "next/link";
 import { fetchSend } from "@/app/hook/HookQuestionnaire";
-import { useAuth } from "../Auth/AuthContext";
 import { useRouter } from "next/navigation";
+import { useAlert } from "../alert/alertContext";
 
 export default function FormPass() {
     const  [rangeBuild, setRangeBuild] = useState(10);
@@ -18,7 +18,7 @@ export default function FormPass() {
     const  [playingRp, setPlayingRp] = useState<boolean>();
     const  [license, setLicense] = useState<boolean>();
     const  [discription, setDiscription] =  useState<string>();
-    const { setAlert } = useAuth();
+    const { setAlert } = useAlert();
     const readirect = useRouter();
 
 

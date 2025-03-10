@@ -43,7 +43,7 @@ export default function PasswordForgotBlock() {
 
 
     return (
-        <>
+        <div>
             <div className={style.AuthBox}>
                 <div className={style.title_auth}>
                     <Image className={style.lock_img} src={lock} alt="" />
@@ -68,6 +68,6 @@ export default function PasswordForgotBlock() {
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
