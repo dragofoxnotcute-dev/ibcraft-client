@@ -14,6 +14,7 @@ h1 {
   --buttonhovercolor: #5900A9;
   --elementcolor: #13061E;
   --openelementcolor: #190826;
+  --main-color: #1a0d2b;
 }
 
 body::-webkit-scrollbar {
