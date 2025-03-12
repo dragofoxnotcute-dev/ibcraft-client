@@ -62,7 +62,8 @@
     background-image: conic-gradient(from var(--angle),#dd03e4, #5611ec,#c471f5, #fa71cd, #5611ec, #dd03e4);
     translate: -50% -50%;
     z-index: -1;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     animation: 3s spin linear infinite;
 }
 
@@ -99,7 +100,13 @@
     opacity: 0;
 }
 
+.creator {
+    filter: drop-shadow(5px 5px 10px rgba(177, 4, 240, 0.233));
+}
 
+.moderator {
+    filter: drop-shadow(5px 5px 10px rgba(177, 4, 240, 0.37));
+}
 
 .creator.visible {
     opacity: 1;

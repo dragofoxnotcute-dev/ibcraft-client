@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
 import { useEffect } from "react";
-import style from "./rule.module.css";
 import DevBlock from "../components/development/Devblock";
+import style from "./howplay.module.css"
 
-export default function Rule() {
-
+export default function HowPlaying() {
+    
     useEffect(() => {
         const bubbleContainer = document.getElementById('bubble-container');
         document.body.style.background = "#13061E";

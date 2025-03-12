@@ -3,8 +3,10 @@
 import { useState } from "react";
 import style from "./mainblock.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import OptionsButton from "../Buttons/OptionsButton";
 import ClipAlert from "../alert/clipAlert";
+import dragofox from "@static/one_block-2.svg";
 
 function MainBlock() {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -26,6 +28,11 @@ function MainBlock() {
     return (
         
         <div className={style.main}>
+            <section>
+                <div className={style.dragofox}>
+                    <Image src={dragofox} alt="Dragon" width={380} height={380}/>
+                </div>
+            </section>
             <div className="container">
                 <ClipAlert copySuccess={copySuccess}>
                     ✅ Скопировано!

@@ -1,3 +1,5 @@
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -32,13 +34,17 @@ body::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--buttonscolor), var(--openelementcolor));
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 
 body {
   background: linear-gradient(162deg, rgba(151, 71, 255, 0.20) 0%, rgba(33, 11, 52, 0.20) 49.72%, rgba(135, 0, 255, 0.20) 98.15%), #210B34;
   background-attachment: fixed;
   color: var(--textcolor);
   font-family: "Oxygen", system-ui;
-  overflow-x: hidden;
   transition: all 0.5s ease;
 }
 

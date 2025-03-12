@@ -48,7 +48,7 @@ function Header() {
                          <nav className={`${style.navbar} ${isOpen ? style.open : ""}`}>
                              <ul className={style.navbar_items}>
                                  <li className={style.list_nav}>
-                                     <a href="" className={style.nav_btn}>
+                                     <Link href="/how-play" className={style.nav_btn}>
                                          <p>Как начать играть</p>
                                          <span className={style.btn_ico}>
                                             <svg width="21px" height="21px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ function Header() {
                                                 <path d="M10 13H7V16H10V13Z" fill="#fff"/>
                                             </svg>
                                          </span>
-                                     </a>
+                                     </Link>
                                  </li>
                                  <li className={style.list_nav}>
                                      <Link href="/rule" className={style.nav_btn}>
