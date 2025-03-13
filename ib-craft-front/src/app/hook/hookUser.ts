@@ -3,7 +3,6 @@ import api from "../api/api";
 import Cookies from "js-cookie";
 import { TypefetchRegister } from "./IUser";
 
-
 const fetchUser = async () => {
     try {
         const response = await api.get('/get-user');
@@ -123,5 +122,31 @@ const fetchCheckToken = async () => {
     }
 };
 
-export  { fetchUser, fetchLogin, fetchCheckToken, fetchRegister, fetchConfirmUser, fetchForgotPassword, fetctTokenReset, fetchResetPassword };
+const fetchUpdateUserAvatar = async (payload: {file: FormData}) => {
+    try {
+        console.log(payload.file)
+        console.log(Cookies.get("X-CSRF-COOKIE"));
+        const response = await api.put('/update-avatar', payload.file,
+            {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+                withCredentials: true,
+            },
+            
+        );
+        return { data: response.data, status: response.status }
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response) {
+            console.log('Ошибка запроса:', error.response.data.error); 
+            console.log('Сообщение:', error.response.data.message);
+            return { data: null, status: error.response.status };
+        } else {
+            console.error('Ошибка сети:', error);
+            return { data: null, status: 500 };
+        } 
+    }   
+}
+
+export  { fetchUser, fetchLogin, fetchCheckToken, fetchRegister, fetchConfirmUser, fetchForgotPassword, fetctTokenReset, fetchResetPassword, fetchUpdateUserAvatar };
 

@@ -68,7 +68,7 @@ function Header() {
                                      {isAuth ? <>
                                         <div className={style.dropdown_content}>
                                             <Link href="/profile" className={`${style.user_btn} ${style.flex}`}>
-                                                {user?.avatarIco ? <><img src={user.avatarIco} alt="user" className={style.userIco} /></> : 
+                                                {user?.avatarIco ? <><img src={process.env.NEXT_PUBLIC_SERVER_URL_HTTP + user.avatarIco} alt="user" className={style.userIco} /></> : 
                                                 <>
                                                     <Image src={icouser} alt="user"  className={style.userIco}/>
                                                 </>}     

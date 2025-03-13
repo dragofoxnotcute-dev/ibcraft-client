@@ -8,7 +8,6 @@ export default function Loader() {
 
     useEffect(() => {
         document.body.style.background = "#13061E";
-        document.body.style.overflowY = "hidden";
     }, [])
 
     return (
