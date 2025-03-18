@@ -1,28 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
-import style from "./rule.module.css";
+import DevBlock from "../components/development/Devblock";
+import BubbleDisable from "../components/EffectComponents/BubbleControler";
 
 export default function Rule() {
-
-    useEffect(() => {
-        const bubbleContainer = document.getElementById('bubble-container');
-        document.body.style.background = "#13061E";
-
-        if (bubbleContainer) {
-            bubbleContainer.classList.add(style.disabled);
-        }
-
-        return () => {
-            if (bubbleContainer) {
-                bubbleContainer.classList.remove(style.disabled);
-            }
-        };
-    });
+    BubbleDisable();
 
     return (
         <div style={{height: "100vh"}}>
-            <h1>Rule page</h1>
+            <DevBlock />
         </div>
     )
 }

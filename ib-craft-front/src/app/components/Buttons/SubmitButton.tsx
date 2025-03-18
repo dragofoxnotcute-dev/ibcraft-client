@@ -27,9 +27,9 @@ export default function SubmitButton({children, onClick, disabled, loading, clas
 
     return (
         <Link
-            className={`${style.button} ${className ? className : style.padding} ${disabled ? "disabled_btn" : ""} ${loading ? "loading" : ""}`} 
+            className={`${style.button} ${className ? className : style.padding} ${disabled ? style.disabled_btn : ""} ${loading ? "loading" : ""}`} 
             onClick={onClick}
-            href={href ? href : "#"}
+            href={href ? href : "#!"} type='submit'
         >
             {icon && (
               <Image src={icon} id='icon' width={20} height={20} alt='icons' style={{position: "relative", marginTop: "3px"}}/>

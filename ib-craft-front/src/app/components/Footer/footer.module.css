@@ -28,13 +28,13 @@
 }
 
 #vk {
-    content: url(../../static/vk_footer.svg);
+    content: url(../../../shared/static/vk_footer.svg);
     width: 40px;
     height: 40px;
 }
 
 #discord {
-    content: url(../../static/discord.svg);
+    content: url(../../../shared/static/discord.svg);
     width: 40px;
     height: 40px;
 }

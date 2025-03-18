@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react"
 
 import style from "./header.module.css"
-import logo from "../../static/logo.svg"
+import logo from "@static/logo.svg"
 import Link from "next/link";
 import Image from "next/image";
+import { useAuth } from "../Auth/AuthContext";
+import icouser from "@static/GkSrQGFXUAA0Ar_.png"
+
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const { user, isAuth, logout} = useAuth();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -20,7 +24,6 @@ function Header() {
         } else {
             document.body.style.overflow = '';
         }
-
         return () => {
             document.body.style.overflow = '';
         };
@@ -45,7 +48,7 @@ function Header() {
                          <nav className={`${style.navbar} ${isOpen ? style.open : ""}`}>
                              <ul className={style.navbar_items}>
                                  <li className={style.list_nav}>
-                                     <a href="" className={style.nav_btn}>
+                                     <Link href="/how-play" className={style.nav_btn}>
                                          <p>Как начать играть</p>
                                          <span className={style.btn_ico}>
                                             <svg width="21px" height="21px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +56,7 @@ function Header() {
                                                 <path d="M10 13H7V16H10V13Z" fill="#fff"/>
                                             </svg>
                                          </span>
-                                     </a>
+                                     </Link>
                                  </li>
                                  <li className={style.list_nav}>
                                      <Link href="/rule" className={style.nav_btn}>
@@ -62,10 +65,26 @@ function Header() {
                                      </Link>
                                  </li>
                                  <li className={style.list_nav}>
-                                     <Link href="/auth" className={style.nav_btn}>
-                                         <p className={style.login}>Авторизация</p>
-                                         <span id={style.login} className={style.btn_ico}></span>
-                                     </Link>
+                                     {isAuth ? <>
+                                        <div className={style.dropdown_content}>
+                                            <Link href="/profile" className={`${style.user_btn} ${style.flex}`}>
+                                                {user?.avatarIco ? <><img src={process.env.NEXT_PUBLIC_SERVER_URL_HTTP + user.avatarIco} alt="user" className={style.userIco} /></> : 
+                                                <>
+                                                    <Image src={icouser} alt="user"  className={style.userIco}/>
+                                                </>}     
+                                            </Link>
+                                            <div className={style.header_dropdown}>
+                                                <p className={style.username}>{user?.name}</p>
+                                                <Link href="/profile">Профиль</Link>
+                                                <a href="" onClick={logout}>Выход</a>
+                                            </div>
+                                        </div>
+                                     </> : 
+                                        <Link href="/auth" className={style.nav_btn}>
+                                            <p className={style.login}>Авторизация</p>
+                                            <span id={style.login} className={style.btn_ico}></span>
+                                        </Link>
+                                     }
                                  </li>
                                  <ul className={style.social_btn}>
                                     <li className={style.list_nav}>

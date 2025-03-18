@@ -4,7 +4,6 @@
 
 .profile_container {
     display: flex;
-    height: 100vh;
     justify-content: center;
 }
 
@@ -34,36 +33,95 @@
 
 }
 
-.profile_info {
+.header_profile {
     display: flex;
-    flex-direction: row;;
-    gap: 90px;
+    flex-direction: row;
     align-items: center;
-    max-height: 100px;
+    justify-content: center;
+    gap: 10px;
+    top: 3px
 }
 
-.status_icon {
-    width: 50px; 
-    height: 50px; 
-    display: inline-block; 
-    fill: rgb(187, 17, 68);
+.profile_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-height: 100px;
+    width: 570px;
+    justify-content: space-between;
 }
 
 .status_block {
     margin-top: 50px;
 }
 
-.status_header {
+.wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 700px;
+    height: 350px;
+    justify-content: center;
     gap: 20px;
-    align-items: center;
-    margin: 20px 10px;
 }
 
-.status_item {
-    padding: 30px 50px;
-    background-color: #2b0d44;
-    border-radius: 40px;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.404);
+.button{
+    margin-top: 10px;
+    padding: 10px 60px;
+    background-color: var(--buttonscolor);
+    color: white;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button:hover {
+    background-color: var(--buttonhovercolor);
+}
+
+.context_modal{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form_nikname input {
+    height: 40px;
+    width: 400px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0 7px;
+    background: #2b0d44;
+    transition: .3s ease;
+    color: #fff;
+}
+
+.form_image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.lable_file {
+    margin-top: 10px;
+    padding: 10px 60px;
+    background-color: var(--buttonscolor);
+    color: white;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.lable_file:hover {
+    background-color: var(--buttonhovercolor);
+}
+
+.fileInput {
+    display: none;
 }
