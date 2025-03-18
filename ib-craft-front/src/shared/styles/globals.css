@@ -23,9 +23,6 @@ body::-webkit-scrollbar {
   width: 10px;
 }
 
-html.modal_open {
-  overflow-y: hidden !important;
-}
 
 body::-webkit-scrollbar-track {
   -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
@@ -40,7 +37,6 @@ body::-webkit-scrollbar-thumb {
 
 html, body {
   width: 100%;
-  overflow-x: hidden;
 }
 
 
@@ -77,15 +73,24 @@ main {
 }
 
 .bubble {
+  -webkit-mask-image: url("/Vector.svg");
+  mask-image: url("/Vector.svg");
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+    
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
   position: absolute;
   bottom: -100px;
   width: 20px;
   height: 20px;
-  background-color: rgba(252, 146, 243, 0.486); /* Полупрозрачный голубой цвет */
-  border-radius: 50%;
+  background-color: rgba(252, 146, 243, 0.249);
   opacity: 0.3;
   animation: bubble_animation 5s linear infinite;
 }
+
 
 @keyframes bubble_animation {
   0% {

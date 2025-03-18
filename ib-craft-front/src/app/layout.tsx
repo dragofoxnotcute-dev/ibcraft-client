@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@styles/reset.css";
@@ -6,7 +7,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { AuthProvider } from "./components/Auth/AuthContext";
 import { AlertProvider } from "./components/alert/alertContext";
-
+import ConditionalHeader from "./components/ConditionalHeader";
+import ConditionalFooter from "./components/ConditionalFooter";
 
 
 const Oxygen = localFont({
@@ -32,9 +34,9 @@ export default function RootLayout({
       <body className={`${Oxygen.variable} soid`}>
         <AuthProvider>
           <AlertProvider>
-            <Header/>
+            <ConditionalHeader />
             {children}
-            <Footer/>
+            <ConditionalFooter />
           </AlertProvider>
         </AuthProvider>
       </body>

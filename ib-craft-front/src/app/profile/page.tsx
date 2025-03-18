@@ -12,7 +12,8 @@ import Image from "next/image";
 import icouser from "@static/GkSrQGFXUAA0Ar_.png"
 import Modal from "../components/Modal";
 import { useState } from "react";
-import { fetchUpdateUserAvatar } from "../hook/hookUser";
+import { fetchUpdateNikname, fetchUpdateUserAvatar } from "../hook/hookUser";
+import Loader from "../components/Loader";
 
 
 const Profile = ({ avatarIco, name, id }: User) => {
@@ -21,7 +22,9 @@ const Profile = ({ avatarIco, name, id }: User) => {
         const [uploading, setUploading] = useState(false);
         const [preview, setPreview] = useState<string | null>(null);
         const [file, setFile] = useState<File | null>(null);
+        const [nikname, setNikname] = useState<string | null>();
 
+        
         const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             const selectedFile = event.target.files?.[0] || null;
             setFile(selectedFile);
@@ -53,6 +56,18 @@ const Profile = ({ avatarIco, name, id }: User) => {
             }
         }
 
+        const updateNikname = async () => {
+            if (!nikname) return;
+
+            setUploading(true);
+            const response = await fetchUpdateNikname({ newNikname: nikname});
+            if (response.status !== 200) {
+                return;
+            }
+
+            window.location.reload();
+        }
+
         return (
             <main>
                 <div className="container">
@@ -65,7 +80,7 @@ const Profile = ({ avatarIco, name, id }: User) => {
                                 </div>
                                 <div className={style.profile}>
                                     <div className={style.profile_info}>
-                                        <div style={{display: "flex", flexDirection: "row", gap: "10px"}}>
+                                        <div className={style.header_profile}>
                                             {name ? <p className={style.context_user}>{name}</p> : <p className={style.context_user}></p>}
                                             <Dropdown>
                                                     <a href="#!" onClick={() => setModalOpenName(true)} style={{color: "#fff", fontWeight: "bold"}}>Сменить никнейм</a>
@@ -87,25 +102,36 @@ const Profile = ({ avatarIco, name, id }: User) => {
                 </div>
 
                 <Modal isOpen={modalOpenName} onClose={() => setModalOpenName(false)}>
-                    <div className="wrapper">
-                        <h1 className="name_modal">Смена никнейма</h1>
-                        <form action="" className="form_nikname">
-                            <input type="text" />
-                        </form>
-                        <button>Изменить</button>
+                    <div className={style.wrapper}>
+                        <div className={style.context_modal}>
+                            <h1 className={style.name_modal}>Смена никнейма</h1>
+                            <form action="" className={style.form_nikname}>
+                                <input type="text" placeholder="Новый никнейм" onChange={(e) => setNikname(e.target.value)} />
+                            </form>
+                        </div>
+                        <div className={style.modal_component}>
+                            <button onClick={updateNikname} className={style.button}>Изменить</button>
+                        </div>
                     </div>
                 </Modal>
                 
                 <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-                    <div className="wrapper">
-                        <h1 className="name_modal">Смена аватара</h1>
-                        <form action="" className="form_nikname">
-                            <input type="file" accept="image/*" onChange={handleFileChange}/>
-                            {preview && <img src={preview} alt="Preview" style={{ width: 100, height: 100, borderRadius: "50%" }} />}
-                        </form>
-                        <button onClick={handleUpload} disabled={uploading}>
-                            {uploading ? "Загружается..." : "Загрузить"}
-                        </button>
+                    <div className={style.wrapper}>
+                        <div className={style.context_modal}>
+                            <h1 className={style.name_modal}>Смена аватара</h1>
+                            <form action="" className={style.form_image}>
+                                <label className={style.lable_file}>
+                                    Загрузить файл
+                                    <input type="file" accept="image/*" className={style.fileInput} onChange={handleFileChange}/>
+                                </label>
+                                {preview && <img src={preview} alt="Preview" style={{ width: 100, height: 100, borderRadius: "50%" }} />}
+                            </form>
+                        </div>
+                        <div className={style.modal_component}>
+                            <button onClick={handleUpload} disabled={uploading} className={style.button}>
+                                {uploading ? "Загружается..." : "Загрузить"}
+                            </button>
+                        </div>
                     </div>
                 </Modal>
             </main>
@@ -118,7 +144,7 @@ export default function ProfilePage() {
     
     return (
         <ProtectedRoute>
-            <Profile {...user} />
+            {user ? <Profile {...user} /> : <Loader />}
         </ProtectedRoute>
     );
  }

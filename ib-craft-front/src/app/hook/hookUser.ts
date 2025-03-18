@@ -5,7 +5,7 @@ import { TypefetchRegister } from "./IUser";
 
 const fetchUser = async () => {
     try {
-        const response = await api.get('/get-user');
+        const response = await api.get('/get-me');
         return response.data;
     } catch (error) {
         console.log('Error fetching user:', error);
@@ -124,8 +124,6 @@ const fetchCheckToken = async () => {
 
 const fetchUpdateUserAvatar = async (payload: {file: FormData}) => {
     try {
-        console.log(payload.file)
-        console.log(Cookies.get("X-CSRF-COOKIE"));
         const response = await api.put('/update-avatar', payload.file,
             {
                 headers: {
@@ -148,5 +146,30 @@ const fetchUpdateUserAvatar = async (payload: {file: FormData}) => {
     }   
 }
 
-export  { fetchUser, fetchLogin, fetchCheckToken, fetchRegister, fetchConfirmUser, fetchForgotPassword, fetctTokenReset, fetchResetPassword, fetchUpdateUserAvatar };
+const fetchUpdateNikname = async (payload: { newNikname: string }) => {
+    try {
+        const response = await api.put('/nikname-update', payload);
+        return { data: response.data, status: response.status };
+    } catch (error) {
+        if(axios.isAxiosError(error) && error.response) {
+            console.error('Error fetching:', error.response.data);
+            return { data: null, status: error.response.status };
+        } else {
+            console.error('Network error:', error);
+            return { data: null, status: 500 };
+        }
+    }
+};
+
+export  { 
+    fetchUser, 
+    fetchLogin, 
+    fetchCheckToken, 
+    fetchRegister, 
+    fetchConfirmUser, 
+    fetchForgotPassword, 
+    fetctTokenReset, 
+    fetchResetPassword, 
+    fetchUpdateUserAvatar, 
+    fetchUpdateNikname };
 

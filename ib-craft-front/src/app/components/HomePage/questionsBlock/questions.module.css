@@ -42,7 +42,7 @@
 
 .question summary::after {
     border-radius: 5px;
-    content: url("../../../shared/static/croos_down.svg");
+    content: url("../../../../shared/static/croos_down.svg");
     color: #fff;
     float: left;
     font-size: 1.5em;
@@ -59,7 +59,7 @@
 }
 
 .question[open] summary::after {
-    content: url(../../../shared/static/croos_up.svg);
+    content: url(../../../../shared/static/croos_up.svg);
 }
 
 .question[open] div {

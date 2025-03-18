@@ -4,9 +4,11 @@ import { useState } from "react";
 import style from "./mainblock.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import OptionsButton from "../Buttons/OptionsButton";
-import ClipAlert from "../alert/clipAlert";
+import OptionsButton from "../../Buttons/OptionsButton";
+import ClipAlert from "../../alert/clipAlert";
 import dragofox from "@static/one_block-2.svg";
+import user_ico from "@static/user_ico.svg";
+import download_ico from "@static/download_ico.svg";
 
 function MainBlock() {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -56,10 +58,10 @@ function MainBlock() {
                         </OptionsButton>
                         <ul className={style.option_button_items}>
                             <li className={style.item_main_btn}>
-                                <Link href="/profile/get-pass" className={style.main_btn}>Получить проходку<span id={style.user_ico}></span></Link>
+                                <Link href="/profile/get-pass" className={style.main_btn}>Получить проходку<Image src={user_ico} width={24} height={21} alt="user_ico" /></Link>
                             </li>
                             <li className={style.item_main_btn}>
-                                <Link href="#" className={style.main_btn}>Скачать сборку<span id={style.download_ico}></span></Link>
+                                <Link href="#" className={style.main_btn}>Скачать сборку<Image src={download_ico} width={24} height={21} alt="download_ico" /></Link>
                             </li>
                         </ul>
                     </div>

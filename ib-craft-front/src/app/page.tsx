@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import CardBlock from "./components/CardBlock/CardBlock";
-import MainBlock from "./components/MainBlock/MainBlock";
-import QuestionsBlock from "./components/questionsBlock/QuestionsBlock";
-import TitleBlock from "./components/titleBlock/TitleBlock";
+import CardBlock from "./components/HomePage/CardBlock/CardBlock";
+import MainBlock from "./components/HomePage/MainBlock/MainBlock";
+import QuestionsBlock from "./components/HomePage/questionsBlock/QuestionsBlock";
+import TitleBlock from "./components/HomePage/titleBlock/TitleBlock";
 import styles from "./page.module.css";
 import BubbleBackground from "./components/EffectComponents/BubbleContainer";
 import Alert from "./components/alert/succesAlert";

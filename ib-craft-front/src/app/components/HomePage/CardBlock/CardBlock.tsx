@@ -1,5 +1,9 @@
 
-import style from './cardblock.module.css'
+import style from './cardblock.module.css';
+import gamepad_ico from "@static/gamepad.svg";
+import ico_pc from "@static/pc.svg"
+import ico_server from "@static/server.svg"
+import Image from 'next/image';
 
 function CardBlock() {
     return (
@@ -9,7 +13,7 @@ function CardBlock() {
                     <div className={style.card}>
                         <div className={style.title_card}>
                             <p>Ванильное<br/>выживание</p>
-                            <span id={style.gamepad_ico} className={style.card_ico}></span>
+                            <Image src={gamepad_ico} width={55} height={55} alt="gamepad_ico"/>
                         </div>
                         <p className={style.context_card}>
                             Наш сервер - ванильный, т.е. 
@@ -24,7 +28,7 @@ function CardBlock() {
                     <div className={style.card}>
                         <div className={style.title_card}>
                             <p>Современные<br/>технологии</p>
-                            <span id={style.pc_ico} className={style.card_ico}></span>
+                            <Image src={ico_pc} width={55} height={55} alt="pc_ico"/>
                         </div>
                         <ul className={style.context_list}>
                                 <li>Онлайн карта мира SquareMap</li>
@@ -39,7 +43,7 @@ function CardBlock() {
                     <div className={style.card}>
                         <div className={style.title_card}>
                             <p>Мощный<br/>сервер</p>
-                            <span id={style.server_ico} className={style.card_ico}></span>
+                            <Image src={ico_server} width={55} height={55} alt="server_ico"/>
                         </div>
                         <p className={style.context_card}>
                             Мощностей нашего сервера 

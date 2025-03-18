@@ -83,22 +83,7 @@
     line-height: 30px;
 }
 
-.card_ico {
-    width: 55px;
-    height: 55px;
-}
 
-#gamepad_ico {
-    content: url(../../../shared/static/gamepad.svg);
-}
-
-#pc_ico {
-    content: url(../../../shared/static/pc.svg);
-}
-
-#server_ico {
-    content: url(../../../shared/static/server.svg);
-}
 
 @media (max-width: 1060px) {
   .cards {

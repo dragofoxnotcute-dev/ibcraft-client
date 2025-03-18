@@ -9,7 +9,7 @@ function BubbleBackground() {
 
 
         for (let i = 0; i < 20; i++) {
-            const bubble = document.createElement('div');
+            const bubble = document.createElement('svg');
             bubble.className = "bubble";
 
             const size = Math.random() * 40 + 10 + 'px';
