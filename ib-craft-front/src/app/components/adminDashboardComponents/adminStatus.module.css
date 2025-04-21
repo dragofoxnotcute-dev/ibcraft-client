@@ -1,0 +1,55 @@
+.statusContainer {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое по горизонтали */
+}
+
+.statusTitle {
+    font-size: 24px;
+    color: #E6E6E6;
+    margin-bottom: 25px;
+    font-weight: 600;
+    align-self: flex-start; /* Заголовок прижимаем к началу */
+    padding-left: 500px; /* Отступ для палки | */
+}
+
+.statsGrid {
+    display: flex;
+    gap: 30px;
+    justify-content: center; /* Центрируем блоки по горизонтали */
+    width: 100%; /* Занимает всю доступную ширину */
+    flex-wrap: wrap; /* Перенос на маленьких экранах */
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    background-color: #1A0D2B;
+    padding: 60px;
+    border-radius: 35px;
+}
+
+.statNumber {
+    font-size: 36px;
+    color: #FFFFFF;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.statLabel {
+    font-size: 16px;
+    color: #A5A5A5;
+    text-align: center;
+    line-height: 1.4;
+    
+}
+
+.devBlockContainer {
+    margin-top: 40px;
+    width: 100%;
+}
