@@ -8,7 +8,7 @@ export default function Rule() {
 
     return (
         <div style={{height: "100vh"}}>
-            <DevBlock />
+            <DevBlock height={"100vh"} />
         </div>
     )
 }

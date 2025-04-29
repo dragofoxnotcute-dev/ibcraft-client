@@ -1,12 +1,15 @@
-import AdminMain from "../components/adminDashboardComponents/adminMain";
-import AdminSideNav from "../components/adminDashboardComponents/adminSideNav";
-import styles from "../components/adminDashboardComponents/adminSideNav.module.css";
+"use client"
+import { useRouter } from 'next/navigation'
+import Loader from '../components/Loader'
+import { useEffect } from 'react'
 
-export default function AdminDeshboard() {
-    return <>
-        <AdminSideNav/>
-        <section className={styles.home}>
-            <AdminMain/>
-        </section>
-    </>
+export default function AdminRedirect() {
+    const router = useRouter()
+    useEffect(() => {
+        router.push('/admin/home')
+    }, [])
+
+    return (
+        <Loader />
+    )
 }

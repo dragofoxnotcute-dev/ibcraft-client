@@ -6,7 +6,9 @@ export default function AdminMain() {
     return (
         <>
             <div className={style.statusContainer}>
-                <h2 className={style.statusTitle}>| Статистика</h2>
+                <div className={style.containerTitle}>
+                 <h2 className={style.statusTitle}>| Статистика</h2> 
+                </div>
                 <div className={style.statsGrid}>
                     <div className={style.statItem}>
                         <span className={style.statNumber}>42</span>
@@ -24,7 +26,9 @@ export default function AdminMain() {
             </div>
 
             <div className={style.devBlockContainer}>
-                <DevBlock />
+                <div className={style.ItemBlock}>
+                    <DevBlock height={"317px"} />
+                </div>
             </div>
         </>
     );

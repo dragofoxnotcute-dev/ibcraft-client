@@ -1,9 +1,13 @@
 import Image from "next/image";
 import egg from "@static/egg.79b70834.png"
 
-export default function DevBlock() {
+interface Style {
+    height: string
+}
+
+export default function DevBlock({height}: Style) {
     return (
-        <div className="container"  style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "35px", fontWeight: "bold" }}>
+        <div className="container"  style={{ height: height, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "35px", fontWeight: "bold" }}>
             <div className="dev" style={{
                 display: "flex", 
                 flexDirection: "column", 
