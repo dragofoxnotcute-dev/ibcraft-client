@@ -1,5 +1,5 @@
 import style from './statusblock.module.css'
-import { useStatus } from '@/app/hook/useStatus'
+import { useStatus } from '@hooks/useStatus'
 
 interface StatusUser {
     userId: string

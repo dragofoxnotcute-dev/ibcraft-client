@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SubmitButton from "../Buttons/SubmitButton";
-import { useStatus } from "@/app/hook/useStatus";
+import { useStatus } from "@hooks/useStatus";
 
 interface ButtonQuestionnaireLinkProps {
     Id?: string;

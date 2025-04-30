@@ -9,7 +9,7 @@ import useFormRegisterStore from "@/app/auth/register/registerStorage";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import Loader from "../Loader";
-import { fetchRegister } from "@/app/hook/hookUser";
+import { fetchRegister } from "@hooks/hookUser";
 import { useRouter } from "next/navigation";
 import { useAlert } from "../alert/alertContext";
 

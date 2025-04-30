@@ -6,7 +6,7 @@ import lock from "@static/3d-lock.png"
 import { useState } from "react";
 import SubmitButton from "../Buttons/SubmitButton";
 import { useAlert } from "../alert/alertContext";
-import { fetchResetPassword } from "@/app/hook/hookUser";
+import { fetchResetPassword } from "@hooks/hookUser";
 import { useRouter } from "next/navigation";
 
 interface PasswordResetProps {

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import style from "./pass.module.css"
 
 import Link from "next/link";
-import { fetchSend } from "@/app/hook/HookQuestionnaire";
+import { fetchSend } from "@hooks/HookQuestionnaire";
 import { useRouter } from "next/navigation";
 import { useAlert } from "../alert/alertContext";
 

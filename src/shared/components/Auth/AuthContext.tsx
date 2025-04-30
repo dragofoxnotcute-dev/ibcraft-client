@@ -1,7 +1,7 @@
 "use client"
 
-import { fetchCheckToken, fetchUser } from "@/app/hook/hookUser";
-import { User } from "@/app/hook/IUser";
+import { fetchCheckToken, fetchUser } from "@hooks/hookUser";
+import { User } from "@hooks/IUser";
 import { useEffect, useState, createContext, useContext } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";

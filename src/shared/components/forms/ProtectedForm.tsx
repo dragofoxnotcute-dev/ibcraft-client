@@ -1,4 +1,4 @@
-import { useStatus } from "@/app/hook/useStatus";
+import { useStatus } from "@hooks/useStatus";
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 import Loader from "../Loader";

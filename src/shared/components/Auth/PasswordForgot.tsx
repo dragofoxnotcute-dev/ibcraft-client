@@ -6,9 +6,8 @@ import lock from "@static/3d-lock.png"
 import Link from "next/link";
 import { useState } from "react";
 import SubmitButton from "../Buttons/SubmitButton";
-import { useAuth } from "./AuthContext";
 import { useAlert } from "../alert/alertContext";
-import { fetchForgotPassword } from "@/app/hook/hookUser";
+import { fetchForgotPassword } from "@hooks/hookUser";
 
 
 export default function PasswordForgotBlock() {

@@ -6,7 +6,7 @@ import Link from "next/link";
 import SubmitButton from "../Buttons/SubmitButton";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { fetchLogin } from "@/app/hook/hookUser";
+import { fetchLogin } from "@hooks/hookUser";
 import { useAuth } from "./AuthContext";
 import Alert from "../alert/succesAlert";
 import { useAlert } from "../alert/alertContext";

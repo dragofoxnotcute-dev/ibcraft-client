@@ -2,7 +2,7 @@
 
 import Backgraund from "@components/backgraund";
 import Loader from "@components/Loader";
-import { fetctTokenReset } from "@/app/hook/hookUser";
+import { fetctTokenReset } from "@hooks/hookUser";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import style from "./reset_password.module.css";

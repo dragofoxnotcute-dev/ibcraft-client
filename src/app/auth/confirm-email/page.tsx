@@ -1,7 +1,7 @@
 "use client"
 import Backgraund from "@components/backgraund";
 import Loader from "@components/Loader";
-import { fetchConfirmUser } from "@/app/hook/hookUser";
+import { fetchConfirmUser } from "@hooks/hookUser";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react"
 import style from "./confirm.module.css"
