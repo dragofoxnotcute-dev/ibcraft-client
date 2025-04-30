@@ -1,0 +1,11 @@
+.main_users {
+    height: 170vh;
+}
+
+.UsersBlock {
+    width: 100%;
+    height: 167vh;
+    background-color: #1A0D2B;
+    margin-top: 50px;
+    border-radius: 45px;
+}

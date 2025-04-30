@@ -24,7 +24,6 @@ export default function AdminSideNav() {
          const sidebar = document.getElementById("sidebar");
          const chevron = document.getElementById("chevron");
          if (sidebar) {
-            //   sidebar.classList.toggle(style.closed);
               chevron?.classList.toggle(style.active_chevron)
               setCloseBar(!closeBar);
          }
@@ -79,6 +78,26 @@ export default function AdminSideNav() {
                                 <span className={`${style.text} ${style.nav_text}`}>Заявки на проходку</span>
                             </Link>
                         </li>
+                    </ul>
+                    <ul className={`${style.subnav} ${pathname === "/admin/request" ? style.subnav_active : ""}`}>
+                                <li className={style.subitems}>
+                                    <a href="#new" className={style.sublink}>
+                                        <i className={`bx bxs-archive ${style.icon}`}></i>
+                                        <span className={`${style.text} ${style.nav_text}`}>Новые заявки</span>
+                                    </a>
+                                </li>
+                                <li className={style.subitems}>
+                                    <a href="#" className={style.sublink}>
+                                        <i className={`bx bx-list-check ${style.icon}`} ></i>
+                                        <span className={`${style.text} ${style.nav_text}`}>Одобренные</span>
+                                    </a>
+                                </li>
+                                <li className={style.subitems}>
+                                    <a href="#" className={style.sublink}>
+                                        <i className={`bx bx-user-x ${style.icon}`} ></i>
+                                        <span className={`${style.text} ${style.nav_text}`}>Отклонённые</span>
+                                    </a>
+                                </li>
                     </ul>
                     <ul className={style.nav_links}>
                         <li className={`${style.nav_link} ${pathname === "/admin/settings" ? style.active : ""}`}>

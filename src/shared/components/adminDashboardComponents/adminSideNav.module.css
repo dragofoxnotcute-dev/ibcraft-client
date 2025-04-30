@@ -143,7 +143,23 @@
     
 }
 
+.subnav {
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: #13061E;
+    transition: opacity 0.5s ease;
+    transform: translateY(-650px);
+}
 
+.subnav_active{
+    position: relative;
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .sidebar.closed ~ .home {
     left: 88px;
