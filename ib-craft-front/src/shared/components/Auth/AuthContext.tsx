@@ -39,19 +39,20 @@ export const AuthProvider = ({ children } : {children: React.ReactNode}) => {
                     if (redirectUri)
                         router.push(redirectUri);
                 }
-
-    
             } catch {
                 setUser(null);
                 setIsAuth(false);
             }
         }
 
-
         const token  = Cookies.get("dragonkey");
-        if (token)
+        if (token) {
             setIsAuth(true);
             verifyUser();
+        } else {
+            setUser(null);
+            setIsAuth(false);
+        }
     }, []);
 
 

@@ -1,6 +1,6 @@
 "use client"
-import Backgraund from "@/app/components/backgraund";
-import Loader from "@/app/components/Loader";
+import Backgraund from "@components/backgraund";
+import Loader from "@components/Loader";
 import { fetchConfirmUser } from "@/app/hook/hookUser";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react"

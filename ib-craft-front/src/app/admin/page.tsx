@@ -1,6 +1,6 @@
 "use client"
 import { useRouter } from 'next/navigation'
-import Loader from '../components/Loader'
+import Loader from '@components/Loader'
 import { useEffect } from 'react'
 
 export default function AdminRedirect() {

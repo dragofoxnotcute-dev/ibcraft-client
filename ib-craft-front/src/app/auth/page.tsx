@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
-import Loader from "../components/Loader";
+import Loader from "@components/Loader";
 
 export default function AuthPage() {
     const navigate = useRouter();

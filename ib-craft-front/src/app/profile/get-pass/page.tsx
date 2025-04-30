@@ -1,12 +1,12 @@
 "use client";
 
-import { useAlert } from "@/app/components/alert/alertContext";
-import Alert from "@/app/components/alert/succesAlert";
-import { useAuth } from "@/app/components/Auth/AuthContext";
-import ProtectedRoute from "@/app/components/Auth/ProtectedRoute";
-import BubbleControler from "@/app/components/EffectComponents/BubbleControler";
-import FormPass from "@/app/components/forms/formspass";
-import ProtectedForm from "@/app/components/forms/ProtectedForm";
+import { useAlert } from "@components/alert/alertContext";
+import Alert from "@components/alert/succesAlert";
+import { useAuth } from "@components/Auth/AuthContext";
+import ProtectedRoute from "@components/Auth/ProtectedRoute";
+import BubbleControler from "@components/EffectComponents/BubbleControler";
+import FormPass from "@components/forms/formspass";
+import ProtectedForm from "@components/forms/ProtectedForm";
 
 
 

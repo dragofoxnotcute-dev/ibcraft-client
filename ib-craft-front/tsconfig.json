@@ -23,6 +23,7 @@
       "@styles/*": ["./src/shared/styles/*"],
       "@static/*": ["./src/shared/static/*"],
       "@fonts/*": ["./src/shared/fonts/*"],
+      "@components/*": ["./src/shared/components/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

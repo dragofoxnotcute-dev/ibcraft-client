@@ -1,6 +1,6 @@
 
 
-import BubbleBackground from "./components/EffectComponents/BubbleContainer";
+import BubbleBackground from "@components/EffectComponents/BubbleContainer";
 
 function NotFoundPage() {
 	return (

@@ -1,12 +1,12 @@
 "use client"
 
-import Backgraund from "@/app/components/backgraund";
-import Loader from "@/app/components/Loader";
+import Backgraund from "@components/backgraund";
+import Loader from "@components/Loader";
 import { fetctTokenReset } from "@/app/hook/hookUser";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import style from "./reset_password.module.css";
-import PasswordReset from "@/app/components/Auth/PasswordReset";
+import PasswordReset from "@components/Auth/PasswordReset";
 
 
 export default function ResetPassword() {

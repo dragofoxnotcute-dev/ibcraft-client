@@ -88,7 +88,7 @@
     position: absolute;
     top: 50%;
     right: -25px;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     height: 25px;
     width: 25px;
     background: var(--buttonhovercolor);
@@ -97,6 +97,7 @@
     justify-content: center;
     border-radius: 50%;
     font-size: 22px;
+    transition: .5s;
 }
 
 
@@ -112,6 +113,15 @@
 
 .sidebar li a:hover {
     background: var(--buttonhovercolor);
+}
+
+.active {
+    background: var(--buttonhovercolor);
+    border-radius: 6px;
+}
+
+.active_chevron {
+    transform: scaleY(-1) rotate(180deg);
 }
 
 .bottom_content {

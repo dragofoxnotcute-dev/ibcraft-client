@@ -1,6 +1,6 @@
-import AuthContainer from "@/app/components/Auth/AuthContainer";
-import RegisterBlock from "@/app/components/Auth/RegisterBlock";
-import BubbleBackground from "@/app/components/EffectComponents/BubbleContainer";
+import AuthContainer from "@components/Auth/AuthContainer";
+import RegisterBlock from "@components/Auth/RegisterBlock";
+import BubbleBackground from "@components/EffectComponents/BubbleContainer";
 
 export default function Register() {
     return (
