@@ -11,14 +11,14 @@ export default function AdminUsers() {
                             <ul className={style.items_tools}>
                                 <li className={style.list_item}>
                                     <a href="">
-                                        < i className={`bx  bx-trash-alt ${style.icon}`}  ></i> 
+                                        <i className={`bx  bx-plus-circle ${style.icon}`}></i> 
                                         <span>Добавить</span>
                                         <span>пользователя</span>
                                     </a>
                                 </li>
                                 <li className={style.list_item}>
                                     <a href="">
-                                        <i className={`bx  bx-plus-circle ${style.icon}`}></i> 
+                                        < i className={`bx  bx-trash-alt ${style.icon}`}  ></i>
                                         <span>Удалить</span>
                                         <span>выбраное</span>
                                     </a>
