@@ -82,7 +82,7 @@ const Profile = ({ avatarIco, name, id }: User) => {
                                     <div className={style.profile_info}>
                                         <div className={style.header_profile}>
                                             {name ? <p className={style.context_user}>{name}</p> : <p className={style.context_user}></p>}
-                                            <Dropdown>
+                                            <Dropdown isOpen={false} onToggle={() => {}}>
                                                     <a href="#!" onClick={() => setModalOpenName(true)} style={{color: "#fff", fontWeight: "bold"}}>Сменить никнейм</a>
                                                     <a href="#!" onClick={() => setModalOpen(true)} style={{color: "#fff", fontWeight: "bold"}}>Сменить аватар</a>
                                                     <a href="#" style={{color: "#fff", fontWeight: "bold"}}>Выйти из аккаунта</a>
