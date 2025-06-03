@@ -73,7 +73,7 @@ export default function AdminSideNav() {
                     </ul>
                     <ul className={style.nav_links}>
                         <li className={`${style.nav_link} ${pathname === "/admin/request" ? style.active : ""}`}>
-                            <Link href="/admin/request">
+                            <Link href="/admin/request#new">
                                 <i className={`bx bx-notepad ${style.icon}`} ></i>
                                 <span className={`${style.text} ${style.nav_text}`}>Заявки на проходку</span>
                             </Link>
