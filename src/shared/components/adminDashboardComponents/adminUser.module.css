@@ -106,3 +106,50 @@
 .pages span {
     padding: 20px;
 }
+
+/* user list */
+
+.itemsListUser {
+    background-color: #180826;
+    width: 100%;
+    
+}
+
+.itemUser{
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 65px;
+    transition: .5s;
+}
+
+.userTitle a{
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.userTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.userTitle i {
+    color: #FFAE00;
+}
+
+.itemUser:hover {
+    background-color: #13061E;
+}
+
+.userTitle input[type=checkbox] {
+    accent-color: #64119c;
+    width: 20px;
+    height: 20px;
+    background: #a05ccd;
+    display: inline-block;
+
+}
+
