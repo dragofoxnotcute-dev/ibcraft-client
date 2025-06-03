@@ -17,7 +17,7 @@
 
 .statsGrid {
     display: flex;
-    gap: 30px;
+    gap: 60px;
     justify-content: center; /* Центрируем блоки по горизонтали */
     width: 100%; /* Занимает всю доступную ширину */
     flex-wrap: wrap; /* Перенос на маленьких экранах */
@@ -64,7 +64,7 @@
 .ItemBlock{
     background-color: rgb(26, 13, 43);
     height: 300px;
-    width: 840px;
+    width: 1229px;
     padding: 20px 0;
     border-radius: 45px;
 }
@@ -72,5 +72,6 @@
 
 .containerTitle{
     padding: 0 120px;
-    width: 800px;
+    width: 1220px;
+    margin: auto;
 }
