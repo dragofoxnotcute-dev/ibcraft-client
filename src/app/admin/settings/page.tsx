@@ -1,7 +1,12 @@
+import AdminContainer from "@/shared/components/adminDashboardComponents/adminContainer";
+
 export default function AdminSettings() {
     return (
         <>
-            <h1>Settings Page</h1>
+            <AdminContainer>
+                <h1>Настройки</h1>
+                <p>Здесь будут настройки для администраторов.</p>
+            </AdminContainer>
         </>
     )
 }

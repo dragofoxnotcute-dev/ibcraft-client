@@ -1,7 +1,12 @@
+import AdminContainer from "@/shared/components/adminDashboardComponents/adminContainer";
+
 export default function AdminRequestPage() {
     return (
         <>
-            <h1>request page</h1>
+            <AdminContainer>
+                <h1>Запросы</h1>
+                <p>Здесь будет список запросов от пользователей.</p>
+            </AdminContainer>
         </>
     )
 }
