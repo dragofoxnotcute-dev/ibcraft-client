@@ -140,7 +140,6 @@
     left: 280px;
     height: 90vh;
     width: calc(100% - 280px);
-    /* overflow-x: hidden; */
 }
 
 .subnav {
