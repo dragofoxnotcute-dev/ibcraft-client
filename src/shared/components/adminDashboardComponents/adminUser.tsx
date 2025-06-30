@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import AdminNavUser from "./adminNavUser"
-import style from "./adminUser.module.css"
+import style from "./adminNav.module.css"
 import user_ico from "@static/user.svg"
 import dot_ico from "@static/icon_dots.svg"
 import Dropdown from "../Dropdown/Dropdown"
@@ -10,7 +10,9 @@ import { useEffect, useRef, useState } from "react"
 import AdminContainer from "./adminContainer";
 
 // Mock data for users
-const users = [{"name": "IlyaBot", "role": "Admin"}, {"name": "Dragofox", "role": "User"}];
+const users = [
+    {"name": "IlyaBot", "role": "Admin"}, 
+    {"name": "Dragofox", "role": "User"}];
 
 export default function AdminUsers() {
 

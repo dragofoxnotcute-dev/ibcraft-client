@@ -9,8 +9,9 @@
     z-index: 1;
     flex-direction: column;
     transition: opacity 0.2s ease;
-    border-radius: 30px;
+    border-radius: 20px;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.404);
+    
 }
 
 .dropdownContent a{
@@ -20,6 +21,7 @@
     display: block;
     border-radius: 30px;
     transition: .5s ease;
+    
 }
 
 .icon_down {
@@ -28,15 +30,18 @@
     display: inline-block;
     color: #fff;
     transition: 0.5s;
+    padding: 10px 10px;
 }
 
 .icon_down:hover {
     background-color: #ffffff3d;
     border-radius: 10px;
+    padding: 10px 10px;
 }
 
 .dropdownContent a:hover{
     background-color: #13061e;
+    border-radius: 10px;
 }
 
 .show {

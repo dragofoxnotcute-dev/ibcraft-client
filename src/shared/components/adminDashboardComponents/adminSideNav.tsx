@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState } from "react";
 import style from "./adminSideNav.module.css";
 import { usePathname } from "next/navigation";
@@ -73,7 +74,7 @@ export default function AdminSideNav() {
                     </ul>
                     <ul className={style.nav_links}>
                         <li className={`${style.nav_link} ${pathname === "/admin/request" ? style.active : ""}`}>
-                            <Link href="/admin/request#new">
+                            <Link href="/admin/request">
                                 <i className={`bx bx-notepad ${style.icon}`} ></i>
                                 <span className={`${style.text} ${style.nav_text}`}>Заявки на проходку</span>
                             </Link>
@@ -81,19 +82,25 @@ export default function AdminSideNav() {
                     </ul>
                     <ul className={`${style.subnav} ${pathname === "/admin/request" ? style.subnav_active : ""}`}>
                                 <li className={style.subitems}>
+                                    <a href="#all" className={style.sublink}>
+                                        <i className={`bx bxs-archive ${style.icon}`}></i>
+                                        <span className={`${style.text} ${style.nav_text}`}>Все заявки</span>
+                                    </a>
+                                </li>
+                                <li className={style.subitems}>
                                     <a href="#new" className={style.sublink}>
                                         <i className={`bx bxs-archive ${style.icon}`}></i>
                                         <span className={`${style.text} ${style.nav_text}`}>Новые заявки</span>
                                     </a>
                                 </li>
                                 <li className={style.subitems}>
-                                    <a href="#" className={style.sublink}>
+                                    <a href="#approved" className={style.sublink}>
                                         <i className={`bx bx-list-check ${style.icon}`} ></i>
                                         <span className={`${style.text} ${style.nav_text}`}>Одобренные</span>
                                     </a>
                                 </li>
                                 <li className={style.subitems}>
-                                    <a href="#" className={style.sublink}>
+                                    <a href="#rejected" className={style.sublink}>
                                         <i className={`bx bx-user-x ${style.icon}`} ></i>
                                         <span className={`${style.text} ${style.nav_text}`}>Отклонённые</span>
                                     </a>

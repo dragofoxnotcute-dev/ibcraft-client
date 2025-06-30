@@ -1,4 +1,4 @@
-import style from "./adminUser.module.css"
+import style from "./adminNav.module.css"
 
 export default function AdminNavNotifications() {
     return (
