@@ -28,16 +28,22 @@ export default function AdminSideRequest() {
         const handleHashChange = () => {
             let data = [...initRequestData];
             if (window.location.hash === "#new") {
+                // Фильтруем и сортируем данные по статусу "Pending"
+                // и дате создания (от новых к старым)
                 data = data
                     .filter(item => item.status === "Pending")
                     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             }
             else if (window.location.hash === "#approved") {
+                // Фильтруем и сортируем данные по статусу "Approved"
+                // и дате создания (от новых к старым)
                 data = data
                     .filter(item => item.status === "Approved")
                     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
             }
             else if (window.location.hash === "#rejected") {
+                // Фильтруем и сортируем данные по статусу "Rejected"
+                // и дате создания (от новых к старым)
                 data = data
                     .filter(item => item.status === "Rejected")
                     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());

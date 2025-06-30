@@ -6,7 +6,7 @@ interface AdminContainerProps {
 
 export default function AdminContainer({ children }: AdminContainerProps) {
     return (
-         <div className="container">
+         <div className={style.container}>
             <div className={style.main_container}>
                 <div className={style.ContainerBlock}>
                     {children}

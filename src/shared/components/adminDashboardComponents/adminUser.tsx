@@ -8,16 +8,19 @@ import dot_ico from "@static/icon_dots.svg"
 import Dropdown from "../Dropdown/Dropdown"
 import { useEffect, useRef, useState } from "react"
 import AdminContainer from "./adminContainer";
+import AdminSideBarUser from "./adminSideBarUser";
 
 // Mock data for users
 const users = [
-    {"name": "IlyaBot", "role": "Admin"}, 
-    {"name": "Dragofox", "role": "User"}];
+    {username: "IlyaBot", role: "Admin", email: "admin@mail.com", discord: "IlyaBot#1234" , createdAt: "2023-10-01T12:00:00Z", emailVerified: true}, 
+    {username: "Dragofox", role: "User", email: "foxgay@mail.com", discord: "Dragofox#5678", createdAt: "2023-09-01T13:00:00Z", emailVerified: true},];
 
 export default function AdminUsers() {
 
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const containerRef = useRef<HTMLUListElement>(null);
+    const [open, setOpen] = useState(false);
+    const [selectedUser, setSelectedUser] = useState<typeof users[0] | null>(null);
 
     const handleToggle = (index: number) => {
         setOpenIndex(prev => (prev === index ? null : index));
@@ -50,13 +53,13 @@ export default function AdminUsers() {
                                     <input type="checkbox" name="" id="" />
                                     <Image src={user_ico} width={20} height={20} alt="user" />
                                     {user.role === "Admin" && < i className='bx  bxs-crown'  ></i> }
-                                    <a href="" className={style.user_name}>{user.name}</a>
+                                    <a href="#" className={style.user_name} onClick={() => setSelectedUser(user)}>{user.username}</a>
                             </div>
                             <div className={style.opt}>
                                     <Dropdown isOpen={openIndex === index} onToggle={() => handleToggle(index)} 
                                     icon={<Image src={dot_ico} width={20} height={20} alt="dots" />} >
                                         <ul className={style.dropdownContent}>
-                                            <li><a href="#">Edit</a></li>
+                                            <li><a href="#" onClick={() => setSelectedUser(user)}>Edit</a></li>
                                             {user.role !== "Admin" && 
                                                 <li><a href="#">Delete</a></li>  
                                             }
@@ -66,9 +69,17 @@ export default function AdminUsers() {
                                         </ul>
                                     </Dropdown>
                             </div>
+                            {/* <AdminSideBarUser isOpen={open} onClose={() => setOpen(false)} user={user} /> */}
                         </li>
                     ))}
                 </ul>
+                {selectedUser && (
+                    <AdminSideBarUser
+                        isOpen={!!selectedUser}
+                        onClose={() => setSelectedUser(null)}
+                        user={selectedUser}
+                    />
+                )}
            </AdminContainer>
         </>
     )
