@@ -7,8 +7,8 @@ export default function AdminNavNotifications() {
                 <li className={style.list_item}>
                     <a href="">
                         <i className={`bx bx-trash-alt ${style.icon}`}></i>
-                        <span>Очистить</span>
-                        <span>Oповещение</span>
+                        <span className={style.titlebtn}>Очистить</span>
+                        <span className={style.titlebtn}>Oповещение</span>
                     </a>
                 </li>
             </ul>

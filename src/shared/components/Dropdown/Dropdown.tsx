@@ -26,6 +26,20 @@ export default function Dropdown({children, icon, onToggle, isOpen}: DropdownPro
         };
     }, []);
 
+    useEffect(() => {
+        if (isOpen && dropdownRef.current) {
+            const menu = dropdownRef.current.querySelector(`.${style.dropdownContent}`) as HTMLElement;
+            if (menu) {
+            const rect = menu.getBoundingClientRect();
+            if (rect.right > window.innerWidth) {
+                // сдвигаем влево на переполнение
+                menu.style.left = `auto`;
+                menu.style.right = `0`;
+            }
+            }
+        }
+    }, [isOpen]);
+
     return (
         
         <div ref={dropdownRef} className={style.dropdown}>

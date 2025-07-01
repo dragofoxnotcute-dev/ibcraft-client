@@ -19,7 +19,6 @@ export default function AdminUsers() {
 
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const containerRef = useRef<HTMLUListElement>(null);
-    const [open, setOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState<typeof users[0] | null>(null);
 
     const handleToggle = (index: number) => {
@@ -51,7 +50,7 @@ export default function AdminUsers() {
                         <li key={index} className={style.itemUser}>
                             <div className={style.userTitle}>
                                     <input type="checkbox" name="" id="" />
-                                    <Image src={user_ico} width={20} height={20} alt="user" />
+                                    <Image src={user_ico} width={20} height={20} alt="user" className={style.user_iocns} />
                                     {user.role === "Admin" && < i className='bx  bxs-crown'  ></i> }
                                     <a href="#" className={style.user_name} onClick={() => setSelectedUser(user)}>{user.username}</a>
                             </div>
@@ -69,7 +68,6 @@ export default function AdminUsers() {
                                         </ul>
                                     </Dropdown>
                             </div>
-                            {/* <AdminSideBarUser isOpen={open} onClose={() => setOpen(false)} user={user} /> */}
                         </li>
                     ))}
                 </ul>

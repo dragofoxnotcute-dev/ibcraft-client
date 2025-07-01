@@ -23,6 +23,7 @@ const Profile = ({ avatarIco, name, id }: User) => {
         const [preview, setPreview] = useState<string | null>(null);
         const [file, setFile] = useState<File | null>(null);
         const [nikname, setNikname] = useState<string | null>();
+        const [DropdownOpen, setDropdownOpen] = useState(false);
 
         
         const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,6 +69,10 @@ const Profile = ({ avatarIco, name, id }: User) => {
             window.location.reload();
         }
 
+        const OpenDropdown = () => {
+            setDropdownOpen(!DropdownOpen);
+        }
+
         return (
             <main>
                 <div className="container">
@@ -82,7 +87,7 @@ const Profile = ({ avatarIco, name, id }: User) => {
                                     <div className={style.profile_info}>
                                         <div className={style.header_profile}>
                                             {name ? <p className={style.context_user}>{name}</p> : <p className={style.context_user}></p>}
-                                            <Dropdown isOpen={false} onToggle={() => {}}>
+                                            <Dropdown isOpen={DropdownOpen} onToggle={() => {OpenDropdown()}}>
                                                     <a href="#!" onClick={() => setModalOpenName(true)} style={{color: "#fff", fontWeight: "bold"}}>Сменить никнейм</a>
                                                     <a href="#!" onClick={() => setModalOpen(true)} style={{color: "#fff", fontWeight: "bold"}}>Сменить аватар</a>
                                                     <a href="#" style={{color: "#fff", fontWeight: "bold"}}>Выйти из аккаунта</a>

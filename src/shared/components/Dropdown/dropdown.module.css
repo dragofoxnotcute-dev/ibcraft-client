@@ -11,7 +11,12 @@
     transition: opacity 0.2s ease;
     border-radius: 20px;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.404);
-    
+    visibility: hidden; /* <-- добавлено */
+    pointer-events: none; /* <-- важно: отключает клики */
+    left: auto; 
+    right: 0; 
+    transform: translateY(-12px);
+    transition: opacity .25s ease, transform .25s ease;
 }
 
 .dropdownContent a{
@@ -47,4 +52,63 @@
 .show {
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+/* ---------- Мобильная адаптация ---------- */
+@media (max-width: 768px) {
+
+  .dropdownContent {
+    /* «якоримся» под кнопкой */
+    top: calc(100% + 8px);      /* 8 px — небольшое расстояние от иконки */
+    left: 0;                    /* прилипнуть к левому краю кнопки */
+    right: auto;                /* убрать right:0; чтобы не занимало весь экран */
+    min-width: 180px;           /* нижний порог, чтобы текст не ломался */
+    width: max-content;         /* ширина по содержимому, но… */
+    max-width: 80vw;            /* … не больше 80 % экрана */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.35);
+    /* анимация «снизу‑вверх» поменьше, чтобы не падало с потолка */
+    transform: translateY(-12px);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+
+  /* когда открыто */
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ссылки внутри меню — чуть крупнее для нажатия пальцем */
+  .dropdownContent a {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+
+  /* сама кнопка‑иконка — пальце‑френдли */
+  .icon_down {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    bottom: 2px;                
+  }
+
+  .icon_down:hover {
+    background-color: #ffffff3d;
+    border-radius: 5px;
+    padding: 0px 0px;
+}
+}
+

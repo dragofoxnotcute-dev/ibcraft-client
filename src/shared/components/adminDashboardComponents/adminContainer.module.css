@@ -3,18 +3,32 @@
     margin: 0 auto;
     padding: 0 120px;
     font-family: "Oxygen", system-ui;
+    box-sizing: border-box
+}
+
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 40px; /* адаптивнее */
+    }
 }
 
 @media (max-width: 768px) {
     .container {
-        padding: 0 0;
+        width: 100%;
+        padding: 0 16px; /* ✅ даём хоть немного отступов */
+        box-sizing: border-box;
     }
-    
+    .main_container {
+        height: auto; /* ✅ Лучше auto на мобилках */
+        min-width: 100%;
+    }
 }
 
 .main_container {
     min-width: 100%;
-    height: 170vh;
+    height: auto; /* ✅ убери 170vh — оно создаёт проблемы */
+    overflow-x: hidden; /* ✅ перестраховка */
 }
 
 .ContainerBlock {

@@ -46,6 +46,10 @@
     font-size: 14px;
 }
 
+.pages_title {
+    color: #554461;
+}
+
 .icon {
     width: 28px;
     height: 28px;
@@ -144,4 +148,87 @@
 
 }
 
+@media (max-width: 768px) {
+  .bartools {
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+    /* gap: 10px; */
+    padding-left: 5px;
+    height: 90px;
+  }
 
+  .user_iocns{
+    width: 13px;
+    height: 13px;
+  }
+
+  .itemUser{
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  .items_tools {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 5px;
+    gap: 30px
+
+  }
+
+  .list_item {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    padding: 5px 5px;
+    gap: 20px;
+    border-radius: 10px;
+  }
+
+  .list_item a {
+    font-size: 12px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  .pages {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+  }
+
+  .pages i {
+    font-size: 24px;
+    height: auto;
+  }
+
+  .pages span {
+    padding: 0;
+    font-size: 12px;
+  }
+
+  .titlebtn {
+    display: none; /* скрываем текст на мобильных */
+  }
+
+  .pages_title {
+    max-width:  30px;
+    font-size: 13px;
+  }
+  
+  .pages li a{
+    max-width: 30px;
+    max-height: 30px;
+
+  }
+
+  .pages li i {
+    font-size: 20px;
+  }
+}
