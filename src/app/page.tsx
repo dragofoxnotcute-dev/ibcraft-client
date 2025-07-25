@@ -22,15 +22,15 @@ export default function Home() {
   return (
     <div className={styles.page}>
       {alertMessage && (
-          <Alert Success={alertSuccess} Color={alertColor}>
-              {alertMessage}
-          </Alert>
+        <Alert Success={alertSuccess} Color={alertColor}>
+          {alertMessage}
+        </Alert>
       )}
       <BubbleBackground />
-      <MainBlock/>
-      <TitleBlock/>
-      <CardBlock/>
-      <QuestionsBlock/>
+      <MainBlock />
+      <TitleBlock />
+      <CardBlock />
+      <QuestionsBlock />
     </div>
   );
 }
