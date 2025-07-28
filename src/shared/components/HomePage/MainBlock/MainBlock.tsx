@@ -58,7 +58,7 @@ function MainBlock() {
                         </OptionsButton>
                         <ul className={style.option_button_items}>
                             <li className={style.item_main_btn}>
-                                <Link href="/profile/get-pass" className={style.main_btn}>Получить проходку<Image src={user_ico} width={24} height={21} alt="user_ico" /></Link>
+                                <a href={`${process.env.NEXT_PUBLIC_BOT_URL}`} className={style.main_btn}>Получить проходку<Image src={user_ico} width={24} height={21} alt="user_ico" /></a>
                             </li>
                             <li className={style.item_main_btn}>
                                 <Link href="#" className={style.main_btn}>Скачать сборку<Image src={download_ico} width={24} height={21} alt="download_ico" /></Link>
