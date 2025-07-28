@@ -4,12 +4,13 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_SERVER_URL_HTTP: process.env.NEXT_PUBLIC_SERVER_URL_HTTP,
     NEXT_PUBLIC_SERVER_URL_HTTPS: process.env.NEXT_PUBLIC_SERVER_URL_HTTPS,
+    DEVMODE: process.env.NEXT_PUBLIC_DEVMODE,
   }
 
 };
 
 module.exports = {
-  reactStrictMode: false, 
+  reactStrictMode: false,
 };
 
 export default nextConfig;

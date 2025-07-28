@@ -4,7 +4,7 @@ import ilyaskin from "@static/ib_craft_owner.svg"
 import Image from "next/image";
 import { useEffect, useRef, useState } from 'react';
 
-function TitleBlock () {
+function TitleBlock() {
 
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +13,7 @@ function TitleBlock () {
     const fullText = `Вы устали от игры на серверах с модами или от игры на серверах, 
     созданных только для доната? Хочется спокойно поиграть в ванильный Minecraft без лишней 
     суеты с небольшим количеством РП в мультиплеере? Тогда мы рады вам представить наш сервер 
-    на версии 1.20.1 - IB-Craft!`;
+    на версии 1.21 - IB-Craft!`;
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -56,10 +56,10 @@ function TitleBlock () {
         <div className={style.main_title}>
             <section ref={sectionRef} className={style.character_container}>
                 <div className={`${style.character} ${isVisible ? style.visible : style.hidden}  ${style.creator} `}>
-                            <Image src={ilyaskin} alt="andery"/>
+                    <Image src={ilyaskin} alt="andery" />
                 </div>
                 <div className={`${style.character}  ${isVisible ? style.visible : style.hidden}  ${style.moderator}`}>
-                        <Image src={moderator_skin} alt="ilyabot" />
+                    <Image src={moderator_skin} alt="ilyabot" />
                 </div>
             </section>
             <div className={`${style.text_container} ${isVisible ? style.text_visible : style.text_hidden}`}>
@@ -70,7 +70,7 @@ function TitleBlock () {
                 </div>
             </div>
         </div>
-    ) 
+    )
 }
 
 export default TitleBlock;
