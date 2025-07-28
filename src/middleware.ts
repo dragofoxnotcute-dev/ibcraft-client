@@ -7,7 +7,9 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl;
   console.log('🔍 middleware called:', request.nextUrl.pathname);
 
-  if (isProd) {
+  console.log(isProd)
+
+  if (isProd === "production") {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
