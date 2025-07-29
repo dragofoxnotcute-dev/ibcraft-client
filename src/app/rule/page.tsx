@@ -1,14 +1,24 @@
-"use client";
+import { getPostBySlug, getPostSlugs } from "@/shared/lib/mdpost";
+import { remark } from "remark";
+import html from "remark-html";
+import 'github-markdown-css/github-markdown.css';
+import RuleClient from "./RuleClient";
 
-import DevBlock from "@components/development/Devblock";
-import BubbleDisable from "@components/EffectComponents/BubbleControler";
 
-export default function Rule() {
-    BubbleDisable();
+export async function generateStaticParams() {
+    const slugs = getPostSlugs();
+    return slugs.map((slug) => ({ slug: slug.replace(/\.md$/, "") }));
+}
+
+export default async function Rule() {
+    const { content, meta } = getPostBySlug("rules");
+    const proccesedContent = await remark().use(html).process(content);
+    const contentHtml = proccesedContent.toString()
 
     return (
-        <div style={{height: "100vh"}}>
-            <DevBlock height={"100vh"} />
+        <div className="container">
+            <RuleClient />
+            <article className="markdown-body" style={{ backgroundColor: "#13061e" }} dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </div>
     )
 }
