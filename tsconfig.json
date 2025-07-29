@@ -25,6 +25,7 @@
       "@fonts/*": ["./src/shared/fonts/*"],
       "@components/*": ["./src/shared/components/*"],
       "@hooks/*": ["./src/shared/hook/*"],
+      "@lib/*": ["./src/shared/lib/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
