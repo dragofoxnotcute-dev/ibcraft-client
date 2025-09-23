@@ -11,4 +11,21 @@ services:
       - NEXT_PUBLIC_VK_URL=https://vk.com/
       - NEXT_PUBLIC_DISCORD_URL=https://discord.com/
       - NEXT_PUBLIC_TELEGRAM_URL=https://t.me/
-      - NEXT_PUBLIC_MODPACK_LINK=https://archlinux.org/ 
+      - NEXT_PUBLIC_MODPACK_LINK=https://archlinux.org/
+    volumes:
+      - ./.next:/app/.next  
+
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      # - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./.next/static:/app/.next/static:ro  # монтируем статику внутрь nginx
+      # - ./certbot/www:/var/www/certbot
+      # - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - ibcraft-app 
+    restart: always

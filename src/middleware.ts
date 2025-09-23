@@ -1,20 +1,23 @@
 import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
 
+
+export function middleware(request: NextRequest) {
+  let hidden;
   const isProd = process.env.NEXT_PUBLIC_DEVMODE;
   const url = request.nextUrl;
-  console.log('🔍 middleware called:', request.nextUrl.pathname);
-
-  console.log(isProd)
 
   if (isProd === "production") {
-    return NextResponse.redirect(new URL('/', request.url))
+    hidden = NextResponse.redirect(new URL('/', request.url))
+    hidden.cookies.set('hidden', 'true', {path: '/'});
+    return hidden;
   }
+   
 
-
-  return NextResponse.next()
+  hidden = NextResponse.next();
+  hidden.cookies.set('hidden', 'false', {path: '/'});
+  return hidden;
 }
 
 export const config = {

@@ -8,11 +8,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../Auth/AuthContext";
 import icouser from "@static/GkSrQGFXUAA0Ar_.png"
+import Cookies from 'js-cookie';
 
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const { user, isAuth, logout } = useAuth();
+    const hidden = Cookies.get('hidden') === 'true' ? true : false;
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -64,7 +66,8 @@ function Header() {
                                     <span id={style.rules_ico} className={style.btn_ico}></span>
                                 </Link>
                             </li>
-                            <li className={style.list_nav}>
+                            {hidden ? null :
+                                <li className={style.list_nav}>
                                 {isAuth ? <>
                                     <div className={style.dropdown_content}>
                                         <Link href="/profile" className={`${style.user_btn} ${style.flex}`}>
@@ -85,7 +88,7 @@ function Header() {
                                         <span id={style.login} className={style.btn_ico}></span>
                                     </Link>
                                 }
-                            </li>
+                            </li>}
                             <ul className={style.social_btn}>
                                 <li className={style.list_nav}>
                                     <a href={`${process.env.NEXT_PUBLIC_VK_URL}`} className={style.nav_btn_mini}>
