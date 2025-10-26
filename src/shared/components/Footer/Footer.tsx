@@ -8,10 +8,10 @@ function Footer() {
                     <p className={style.copyright}>Copyright © IB-Craft 2024. Все права защищены. Сервера IB-Craft не относятся к Mojang Studios.</p>
                     <div className={style.socal_btn}>
                         <span>
-                            <a href={`${process.env.NEXT_PUBLIC_VK_URL}`} id={style.vk} className={style.ico_socal}></a>
+                            <a href="/vk" id={style.vk} className={style.ico_socal}></a>
                         </span>
                         <span>
-                            <a href={`${process.env.NEXT_PUBLIC_DISCORD_URL}`} id={style.discord} className={style.ico_socal}></a>
+                            <a href="/discord" id={style.discord} className={style.ico_socal}></a>
                         </span>
                     </div>
                 </div>

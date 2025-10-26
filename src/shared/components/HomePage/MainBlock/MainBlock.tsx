@@ -58,10 +58,10 @@ function MainBlock() {
                         </OptionsButton>
                         <ul className={style.option_button_items}>
                             <li className={style.item_main_btn}>
-                                <a href={`${process.env.NEXT_PUBLIC_BOT_URL}`} className={style.main_btn}>Получить проходку<Image src={user_ico} width={24} height={21} alt="user_ico" /></a>
+                                <Link href="/telegram_bot" className={style.main_btn}>Получить проходку<Image src={user_ico} width={24} height={21} alt="user_ico" /></Link>
                             </li>
                             <li className={style.item_main_btn}>
-                                <Link href={`${process.env.NEXT_PUBLIC_MODPACK_LINK}`} className={style.main_btn}>Скачать сборку<Image src={download_ico} width={24} height={21} alt="download_ico" /></Link>
+                                <Link href="/modpack" className={style.main_btn}>Скачать сборку<Image src={download_ico} width={24} height={21} alt="download_ico" /></Link>
                             </li>
                         </ul>
                     </div>
