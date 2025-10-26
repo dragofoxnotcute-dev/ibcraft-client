@@ -18,8 +18,8 @@ const Oxygen = localFont({
 
 
 export const metadata: Metadata = {
-  title: "Ib-craft",
-  description: "Ibcraft web site",
+  title: "IB-Craft",
+  description: "IB-Craft Web Site",
 };
 
 
